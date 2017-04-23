@@ -1,6 +1,6 @@
 # Scholar
 
-![Addon Version](https://img.shields.io/github/release/WidgetInteractive/Scholar.svg?maxAge=2592000)  [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/section214/username-changer/blob/master/license.txt)
+![Addon Version](https://img.shields.io/github/release/WidgetInteractive/Scholar.svg?maxAge=2592000)  [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/WidgetInteractive/Scholar/blob/master/license.txt)
 
 ### Welcome to our GitHub Repository
 
