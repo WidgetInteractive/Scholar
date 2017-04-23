@@ -1,7 +1,7 @@
 -- Constants -------------------------------------------------------------
 ADDON_NAME    = "Scholar"
 ADDON_VERSION = "0.0.1"
-ADDON_WEBSITE = "https://widgetinteractive.com/scholar"
+ADDON_WEBSITE = "http://www.esoui.com/downloads/info1670-Scholar.html"
 
 -- Local variables -------------------------------------------------------------
 local Scholar = ZO_Object:New()
