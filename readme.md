@@ -19,7 +19,7 @@ Feel like supporting? Why not [donate](https://paypal.me/Section214)?
 1. You can clone the GitHub repository: `https://github.com/WidgetInteractive/Scholar.git`
 2. Or download it directly as a ZIP file: `https://github.com/WidgetInteractive/Scholar/archive/master.zip`
 
-This will download the latest developer copy of Username Changer.
+This will download the latest developer copy of Scholar.
 
 ## Bugs
 
