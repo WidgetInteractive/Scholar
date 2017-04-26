@@ -1,6 +1,6 @@
 -- Constants -------------------------------------------------------------
 ADDON_NAME    = "Scholar"
-ADDON_VERSION = "0.0.1"
+ADDON_VERSION = "1.0.0"
 ADDON_WEBSITE = "http://www.esoui.com/downloads/info1670-Scholar.html"
 
 -- Local variables -------------------------------------------------------------
@@ -22,8 +22,8 @@ function Scholar:New()
 
 	local defaults = {
 		enable = {
-			spinner = true,
-			timers  = true
+			timers      = true,
+			stableTimer = false
 		},
 		timers = {
 			position = {
@@ -32,26 +32,28 @@ function Scholar:New()
 				x        = 0,
 				y        = 0
 			},
-			completed       = {},
-			labelFont       = "Bold",
-			labelOutline    = "Soft Thick Shadow",
-			labelSize       = 16,
-			timeFont        = "Medium",
-			timeOutline     = "Thick Outline",
-			timeSize        = 14,
-			labelColor      = self.FONT_COLOR_NORMAL_DEFAULT,
-			timeColor       = {1, 1, 1, 1},
-			backgroundColor = {0.529, 1, 1, 1},
-			glossColor      = {1, 1, 1, 1},
-			labelAlignment  = "Right",
-			sort            = "Descending",
-			scale           = 0.7,
-			spacing         = 50,
-			hideInCombat    = true,
-			autoClear       = false
+			completed             = {},
+			labelFont             = "Bold",
+			labelOutline          = "Soft Thick Shadow",
+			labelSize             = 16,
+			timeFont              = "Medium",
+			timeOutline           = "Thick Outline",
+			timeSize              = 14,
+			labelColor            = self.FONT_COLOR_NORMAL_DEFAULT,
+			timeColor             = {1, 1, 1, 1},
+			backgroundColor       = {0.529, 1, 1, 1},
+			glossColor            = {1, 1, 1, 1},
+			labelAlignment        = "Right",
+			sort                  = "Descending",
+			scale                 = 0.7,
+			spacing               = 50,
+			hideInCombat          = true,
+			autoClear             = false,
+			stableBackgroundColor = {0.529, 1, 1, 1},
+			stableGlossColor      = {1, 1, 1, 1},
 		}
 	}
-	
+
 	self.savedVariables = {}
 	self.savedAccount   = ZO_SavedVars:NewAccountWide("Scholar_SavedVariables", 1.8, nil, defaults)
 	self.savedCharacter = ZO_SavedVars:New("Scholar_SavedVariables", 1.8, nil, defaults)
@@ -66,7 +68,7 @@ function Scholar:Initialize()
 	Scholar_Settings:CreateMenu(self)
 
 	-- Load modules
-	if self.savedVariables.enable.timers then
+	if self.savedVariables.enable.timers or self.savedVariables.enable.stableTimer then
 		Scholar_Timers:Initialize(self)
 	end
 end

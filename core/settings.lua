@@ -22,7 +22,7 @@ function Scholar_Settings:CreateMenu(parent)
 
 	-- Load ZO_NORMAL_TEXT to set defaults
 	local norm = ZO_NORMAL_TEXT
-	
+
 	-- Define options
 	local optionsData = {
 		{
@@ -59,6 +59,14 @@ function Scholar_Settings:CreateMenu(parent)
 					default = true,
 					getFunc = function() return parent.savedVariables.enable.timers end,
 					setFunc = function(enable) parent.savedVariables.enable.timers = enable end
+				},
+				{
+					type    = "checkbox",
+					name    = GetString(SCHOLAR_ENABLE_STABLE_TIMER),
+					tooltip = GetString(SCHOLAR_ENABLE_STABLE_TIMER_TIP),
+					default = false,
+					getFunc = function() return parent.savedVariables.enable.stableTimer end,
+					setFunc = function(enable) parent.savedVariables.enable.stableTimer = enable end
 				},
 				{
 					type    = "button",
@@ -254,6 +262,36 @@ function Scholar_Settings:CreateMenu(parent)
 						Scholar_Timers:ApplySettings()
 					end
 				}
+			}
+		},
+		{
+			type     = "submenu",
+			name     = GetString(SCHOLAR_STABLE_TIMER_TITLE),
+			controls = {
+				{
+					type = "description",
+					text = GetString(SCHOLAR_STABLE_TIMER_DESCRIPTION)
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR),
+					tooltip = GetString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR_TIP),
+					default = {r=0.529, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.stableBackgroundColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.stableBackgroundColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR),
+					tooltip = GetString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR_TIP),
+					default = {r=1, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.stableGlossColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.stableGlossColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
+					end
+				},
 			}
 		}
 	}
