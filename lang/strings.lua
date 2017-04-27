@@ -52,13 +52,39 @@ local strings = {
 	SCHOLAR_TIMERS_HIDE_IN_COMBAT_TIP         = "Enable this setting to hide research timers while in combat.",
 	SCHOLAR_TIMERS_AUTOCLEAR                  = "Auto-Clear Timers",
 	SCHOLAR_TIMERS_AUTOCLEAR_TIP              = "Enable this setting to automatically clear research timers when they are completed.",
+	SCHOLAR_TIMERS_NOTIFICATIONS              = "Notification Type",
+	SCHOLAR_TIMERS_NOTIFICATIONS_TIP          = "Choose how notifications should be displayed when research completes.",
 	SCHOLAR_STABLE_TIMER_TITLE                = "Stable Timer Settings",
 	SCHOLAR_STABLE_TIMER_DESCRIPTION          = "The stable timer inherits its settings from the research timers, but the timer color can be independently configured for clarity.",
 	SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR     = "Background Color",
 	SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR_TIP = "Set the color used for the background of the stable timer bar.",
 	SCHOLAR_STABLE_TIMER_GLOSS_COLOR          = "Gloss Color",
 	SCHOLAR_STABLE_TIMER_GLOSS_COLOR_TIP      = "Set the color used for the gloss (highlight) of the stable timer bar.",
-	SCHOLAR_TRAIN_RIDING_SKILL                = "Train riding skill in"
+	SCHOLAR_STABLE_TIMER_LABEL                = "Riding skill",
+	SCHOLAR_TRAIN_RIDING_SKILL                = "Train riding skill in",
+
+	-- Dropdown option strings
+	SCHOLAR_OPTION_NONE              = "None",
+	SCHOLAR_OPTION_CHAT              = "Chat",
+	SCHOLAR_OPTION_ANNOUNCEMENT      = "Announcement",
+	SCHOLAR_OPTION_LEFT              = "Left",
+	SCHOLAR_OPTION_RIGHT             = "Right",
+	SCHOLAR_OPTION_ASCENDING         = "Ascending",
+	SCHOLAR_OPTION_DESCENDING        = "Descending",
+	SCHOLAR_OPTION_BOLD              = "Bold",
+	SCHOLAR_OPTION_MEDIUM            = "Medium",
+	SCHOLAR_OPTION_ANTIQUE           = "Antique",
+	SCHOLAR_OPTION_HANDWRITTEN       = "Handwritten",
+	SCHOLAR_OPTION_STONE_TABLET      = "Stone Tablet",
+	SCHOLAR_OPTION_GAMEPAD_BOLD      = "Gamepad Bold",
+	SCHOLAR_OPTION_GAMEPAD_MEDIUM    = "Gamepad Medium",
+	SCHOLAR_OPTION_ARIAL_NARROW      = "Arial Narrow",
+	SCHOLAR_OPTION_SOFT_THICK_SHADOW = "Soft Thick Shadow",
+	SCHOLAR_OPTION_SOFT_THIN_SHADOW  = "Soft Thin Shadow",
+	SCHOLAR_OPTION_SHADOW            = "Shadow",
+	SCHOLAR_OPTION_THICK_OUTLINE     = "Thick Outline",
+	SCHOLAR_OPTION_THIN_OUTLINE      = "Thin Outline",
+	SCHOLAR_OPTION_OUTLINE           = "Outline"
 }
 for stringId, stringValue in pairs(strings) do
 	ZO_CreateStringId(stringId, stringValue)

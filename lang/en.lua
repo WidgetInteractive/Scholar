@@ -63,6 +63,8 @@ SafeAddString(SCHOLAR_TIMERS_AUTOCLEAR, "Auto-Clear Timers", 1),
 SafeAddString(SCHOLAR_TIMERS_AUTOCLEAR_TIP, "Enable this setting to automatically clear research timers when they are completed."
 SafeAddString(SCHOLAR_TIMERS_AUTOCLEAR, "Auto-Clear Timers", 1),
 SafeAddString(SCHOLAR_TIMERS_AUTOCLEAR_TIP, "Enable this setting to automatically clear research timers when they are completed.",
+SafeAddString(SCHOLAR_TIMERS_NOTIFICATIONS, "Notification Type"),
+SafeAddString(SCHOLAR_TIMERS_NOTIFICATIONS_TIP, "Choose how notifications should be displayed when research completes."),
 SafeAddString(SCHOLAR_STABLE_TIMER_TITLE, "Stable Timer Settings"),
 SafeAddString(SCHOLAR_STABLE_TIMER_DESCRIPTION, "The stable timer inherits its settings from the research timers, but the timer color can be independently configured for clarity."),
 SafeAddString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR, "Background Color"),
@@ -70,4 +72,7 @@ SafeAddString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR_TIP, "Set the color used for
 SafeAddString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR, "Gloss Color"),
 SafeAddString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR_TIP, "Set the color used for the gloss (highlight) of the stable timer bar."),
 SafeAddString(SCHOLAR_TRAIN_RIDING_SKILL, "Train riding skill in")
+
+-- Dropdown option strings
+
 --]]

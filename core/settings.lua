@@ -196,8 +196,8 @@ function Scholar_Settings:CreateMenu(parent)
 					type    = "dropdown",
 					name    = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT),
 					tooltip = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT_TIP),
-					choices = {"Right", "Left"},
-					default = "Right",
+					choices = {GetString(SCHOLAR_OPTION_RIGHT), GetString(SCHOLAR_OPTION_LEFT)},
+					default = GetString(SCHOLAR_OPTION_RIGHT),
 					getFunc = function() return parent.savedVariables.timers.labelAlignment end,
 					setFunc = function(labelAlignment) parent.savedVariables.timers.labelAlignment = labelAlignment
 						Scholar_Timers:RearrangeBars()
@@ -208,8 +208,8 @@ function Scholar_Settings:CreateMenu(parent)
 					name    = GetString(SCHOLAR_TIMERS_SORT),
 					tooltip = GetString(SCHOLAR_TIMERS_SORT_TIP),
 					warning = GetString(SCHOLAR_RELOAD_WARNING),
-					choices = {"Descending", "Ascending"},
-					default = "Descending",
+					choices = {GetString(SCHOLAR_OPTION_DESCENDING), GetString(SCHOLAR_OPTION_ASCENDING)},
+					default = GetString(SCHOLAR_OPTION_DESCENDING),
 					getFunc = function() return parent.savedVariables.timers.sort end,
 					setFunc = function(sort) parent.savedVariables.timers.sort = sort
 						ReloadUI("ingame")
@@ -261,6 +261,15 @@ function Scholar_Settings:CreateMenu(parent)
 					setFunc = function(autoClear) parent.savedVariables.timers.autoClear = autoClear
 						Scholar_Timers:ApplySettings()
 					end
+				},
+				{
+					type    = "dropdown",
+					name    = GetString(SCHOLAR_TIMERS_NOTIFICATIONS),
+					tooltip = GetString(SCHOLAR_TIMERS_NOTIFICATIONS_TIP),
+					choices = {GetString(SCHOLAR_OPTION_NONE), GetString(SCHOLAR_OPTION_CHAT), GetString(SCHOLAR_OPTION_ANNOUNCEMENT)},
+					default = GetString(SCHOLAR_OPTION_NONE),
+					getFunc = function() return parent.savedVariables.timers.notifications end,
+					setFunc = function(notifications) parent.savedVariables.timers.notifications = notifications end
 				}
 			}
 		},

@@ -15,7 +15,13 @@ function Scholar_Timer_Bar:Destroy()
 	self.bar:SetHandler("OnUpdate", nil)
 	self.barsPool:ReleaseObject(self.barKey)
 
-	local key = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
+	local key = ""
+
+	if self.craftingSkillType then
+		key = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
+	else
+		key = "riding"
+	end
 
 	Scholar_Timers.timers[key]                                 = nil
 	Scholar_Timers.parent.savedVariables.timers.completed[key] = nil
@@ -117,7 +123,7 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 	self.label:ClearAnchors()
 	self.closeButton:ClearAnchors()
 
-	if Scholar_Timers.parent.savedVariables.timers.labelAlignment == "Right" then
+	if Scholar_Timers.parent.savedVariables.timers.labelAlignment == GetString(SCHOLAR_OPTION_RIGHT) then
 		self.closeButton:SetAnchor(RIGHT, self.bar, LEFT, -8)
 		self.label:SetAnchor(BOTTOMRIGHT, self.progressBar, TOPRIGHT, 0, -4)
 		self.progressBar:SetBarAlignment(BAR_ALIGNMENT_REVERSE)
@@ -150,10 +156,26 @@ function Scholar_Timer_Bar:Completed()
 
 	self.timeLeftLabel:SetText(GetString(SI_ACHIEVEMENTS_TOOLTIP_COMPLETE) .. "!")
 
-	local key = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
+	local key   = ""
+	local label = ""
+
+	if self.craftingSkillType then
+		key   = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
+		label = key
+	else
+		key = "riding"
+		label = GetString(SCHOLAR_STABLE_TIMER_LABEL)
+	end
 
 	if not Scholar_Timers.parent.savedVariables.timers.completed[key] then
 		Scholar_Timers.parent.savedVariables.timers.completed[key] = { craftingSkillType = self.craftingSkillType, researchLineIndex = self.researchLineIndex, traitIndex = self.traitIndex }
+	end
+
+	if Scholar_Timers.parent.savedVariables.timers.notifications == "Chat" then
+		PlaySound("Smithing_Finish_Research")
+		CHAT_SYSTEM:AddMessage(GetString(SCHOLAR_TIMERS_COMPLETED) .. ": " .. label)
+	elseif Scholar_Timers.parent.savedVariables.timers.notifications == "Announcement" then
+		CENTER_SCREEN_ANNOUNCE:AddMessage(0, CSA_EVENT_COMBINED_TEXT, SOUNDS.SMITHING_FINISH_RESEARCH, GetString(SCHOLAR_TIMERS_COMPLETED), label)
 	end
 
 	if Scholar_Timers.parent.savedVariables.timers.autoClear then
@@ -197,7 +219,7 @@ function Scholar_Timers:RearrangeBars()
 		self.timers[self.timerKeys[i]].label:ClearAnchors()
 		self.timers[self.timerKeys[i]].closeButton:ClearAnchors()
 
-		if Scholar_Timers.parent.savedVariables.timers.labelAlignment == "Right" then
+		if Scholar_Timers.parent.savedVariables.timers.labelAlignment == GetString(SCHOLAR_OPTION_RIGHT) then
 			self.timers[self.timerKeys[i]].closeButton:SetAnchor(RIGHT, self.timers[self.timerKeys[i]].bar, LEFT, -8)
 			self.timers[self.timerKeys[i]].label:SetAnchor(BOTTOMRIGHT, self.timers[self.timerKeys[i]].progressBar, TOPRIGHT, 0, -4)
 			self.timers[self.timerKeys[i]].progressBar:SetBarAlignment(BAR_ALIGNMENT_REVERSE)
@@ -329,9 +351,9 @@ function Scholar_Timers:Initialize(parent)
 		end
 
 		table.sort(timers, function(t1, t2)
-			if t2[1] < t1[1] and Scholar_Timers.parent.savedVariables.timers.sort == "Descending" then
+			if t2[1] < t1[1] and Scholar_Timers.parent.savedVariables.timers.sort == GetString(SCHOLAR_OPTION_DESCENDING) then
 				return true
-			elseif t1[1] < t2[1] and Scholar_Timers.parent.savedVariables.timers.sort == "Ascending" then
+			elseif t1[1] < t2[1] and Scholar_Timers.parent.savedVariables.timers.sort == GetString(SCHOLAR_OPTION_ASCENDING) then
 				return true
 			end
 			return false

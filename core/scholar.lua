@@ -33,24 +33,25 @@ function Scholar:New()
 				y        = 0
 			},
 			completed             = {},
-			labelFont             = "Bold",
-			labelOutline          = "Soft Thick Shadow",
+			labelFont             = GetString(SCHOLAR_OPTION_BOLD),
+			labelOutline          = GetString(SCHOLAR_OPTION_SOFT_THICK_SHADOW),
 			labelSize             = 16,
-			timeFont              = "Medium",
-			timeOutline           = "Thick Outline",
+			timeFont              = GetString(SCHOLAR_OPTION_MEDIUM),
+			timeOutline           = GetString(SCHOLAR_OPTION_THICK_OUTLINE),
 			timeSize              = 14,
 			labelColor            = self.FONT_COLOR_NORMAL_DEFAULT,
 			timeColor             = {1, 1, 1, 1},
 			backgroundColor       = {0.529, 1, 1, 1},
 			glossColor            = {1, 1, 1, 1},
-			labelAlignment        = "Right",
-			sort                  = "Descending",
+			labelAlignment        = GetString(SCHOLAR_OPTION_RIGHT),
+			sort                  = GetString(SCHOLAR_OPTION_DESCENDING),
 			scale                 = 0.7,
 			spacing               = 50,
 			hideInCombat          = true,
 			autoClear             = false,
 			stableBackgroundColor = {0.529, 1, 1, 1},
 			stableGlossColor      = {1, 1, 1, 1},
+			notifications         = GetString(SCHOLAR_OPTION_NONE)
 		}
 	}
 
