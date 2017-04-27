@@ -1,3 +1,8 @@
+= 1.1.0 (April 27, 2017) =
+* Added: Notification support
+* Added: /scholar timers command
+* Fixed: Minor bug fixes
+
 = 1.0.0 (April 26, 2017) =
 * Added: Stable training timer
 * Fixed: String bug
