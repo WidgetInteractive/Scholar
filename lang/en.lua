@@ -14,6 +14,12 @@ SafeAddString(SCHOLAR_TITLE, "Scholar"), 1),
 -- Common use
 SafeAddString(SCHOLAR_RELOAD_WARNING, "Changing this setting will reload the UI!"), 1),
 
+-- Commands
+SafeAddString(SCHOLAR_COMMANDS_VALID, "Valid Commands"),
+SafeAddString(SCHOLAR_COMMANDS_TIMERS, "Toggle display of timers"),
+SafeAddString(SCHOLAR_COMMANDS_SETTINGS, "Display settings panel"),
+SafeAddString(SCHOLAR_COMMANDS_NONE, "There are no valid slash commands for the current configuration."),
+
 -- General settings
 SafeAddString(SCHOLAR_GENERAL_TITLE, "General Settings"), 1),
 SafeAddString(SCHOLAR_ACCOUNT_WIDE, "Use Account Wide Settings"), 1),

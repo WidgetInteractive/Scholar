@@ -37,6 +37,7 @@ libs/LibAddonMenu-2.0/controls/iconpicker.lua
 core/scholar.lua
 core/fonts.lua
 core/settings.lua
+core/commands.lua
 
 ; Modules
 modules/timers.lua

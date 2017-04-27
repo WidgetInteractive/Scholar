@@ -5,6 +5,12 @@ local strings = {
 	-- Common use
 	SCHOLAR_RELOAD_WARNING = "Changing this setting will reload the UI!",
 
+	-- Commands
+	SCHOLAR_COMMANDS_VALID    = "Valid Commands",
+	SCHOLAR_COMMANDS_TIMERS   = "Toggle display of timers",
+	SCHOLAR_COMMANDS_SETTINGS = "Display settings panel",
+	SCHOLAR_COMMANDS_NONE     = "There are no valid slash commands for the current configuration.",
+
 	-- General settings
 	SCHOLAR_GENERAL_TITLE           = "General Settings",
 	SCHOLAR_ACCOUNT_WIDE            = "Use Account Wide Settings",

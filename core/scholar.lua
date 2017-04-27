@@ -67,6 +67,7 @@ end
 
 function Scholar:Initialize()
 	Scholar_Settings:CreateMenu(self)
+	Scholar_Slash_Commands:Initialize(self)
 
 	-- Load modules
 	if self.savedVariables.enable.timers or self.savedVariables.enable.stableTimer then

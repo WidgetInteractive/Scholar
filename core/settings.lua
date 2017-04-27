@@ -13,7 +13,7 @@ function Scholar_Settings:CreateMenu(parent)
 		displayName         = GetString(SCHOLAR_TITLE),
 		author              = "Widget Interactive",
 		version             = ADDON_VERSION,
-		slashCommand        = "/scholar",
+		slashCommand        = "/scholar_settings",
 		registerForRefresh  = true,
 		registerForDefaults = true,
 		website             = ADDON_WEBSITE
