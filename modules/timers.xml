@@ -5,7 +5,7 @@
 		</TopLevelControl>
 		<Control name="Scholar_Timer" virtual="true">
 			<Dimensions x="320" y="18" />
-			
+
 			<Controls>
 				<StatusBar name="$(parent)Bar" inherits="ZO_DefaultStatusBarBG">
 					<AnchorFill/>
@@ -20,6 +20,6 @@
 					<Anchor point="RIGHT" relativeTo="$(parent)" relativePoint="LEFT" offsetX="-8" />
 				</Button>
 			</Controls>
-                </Control>
+		</Control>
 	</Controls>
 </GuiXml>

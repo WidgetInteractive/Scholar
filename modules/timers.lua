@@ -292,6 +292,9 @@ function Scholar_Timers:AddStableTimer()
 	table.insert(self.timerKeys, key)
 end
 
+-- Slash commands --------------------------------------------------------------
+SLASH_COMMANDS["/scholar_timers"] = Scholar_Timers_Toggle
+
 -- Initialize timers -----------------------------------------------------------
 function Scholar_Timers:Initialize(parent)
 	Scholar_Timer_Bar:Initialize()
@@ -350,7 +353,6 @@ function Scholar_Timers:Initialize(parent)
 
 	if Scholar_Timers.parent.savedVariables.enable.stableTimer then
 		Scholar_Timers:MountUpdate()
-		--STABLE_MANAGER:RegisterCallback("StableInteractEnd", function() Scholar_Timers:MountUpdate() end)
 	end
 
 	local fragment = ZO_SimpleSceneFragment:New(Scholar_ResearchTimersContainer)
