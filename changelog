@@ -1,3 +1,6 @@
+= 1.1.1 (April 28, 2017) =
+* Fixed: Chat notification display
+
 = 1.1.0 (April 27, 2017) =
 * Added: Notification support
 * Added: /scholar timers command

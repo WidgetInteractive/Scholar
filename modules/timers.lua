@@ -160,8 +160,12 @@ function Scholar_Timer_Bar:Completed()
 	local label = ""
 
 	if self.craftingSkillType then
+		local skillName = GetSkillLineInfo(GetCraftingSkillLineIndices(self.craftingSkillType))
+		local name      = GetSmithingResearchLineInfo(self.craftingSkillType, self.researchLineIndex)
+		local traitName = GetString("SI_ITEMTRAITTYPE", GetSmithingResearchLineTraitInfo(self.craftingSkillType, self.researchLineIndex, self.traitIndex))
+
 		key   = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
-		label = key
+		label = skillName .. " " .. name .. " " .. traitName
 	else
 		key = "riding"
 		label = GetString(SCHOLAR_STABLE_TIMER_LABEL)
@@ -171,6 +175,7 @@ function Scholar_Timer_Bar:Completed()
 		Scholar_Timers.parent.savedVariables.timers.completed[key] = { craftingSkillType = self.craftingSkillType, researchLineIndex = self.researchLineIndex, traitIndex = self.traitIndex }
 	end
 
+  -- NOT WORKING
 	if Scholar_Timers.parent.savedVariables.timers.notifications == "Chat" then
 		PlaySound("Smithing_Finish_Research")
 		CHAT_SYSTEM:AddMessage(GetString(SCHOLAR_TIMERS_COMPLETED) .. ": " .. label)
@@ -372,6 +377,7 @@ function Scholar_Timers:Initialize(parent)
 
 	if Scholar_Timers.parent.savedVariables.enable.stableTimer then
 		Scholar_Timers:MountUpdate()
+		STABLE_MANAGER:RegisterCallback("StableInteractEnd", function() Scholar_Timers:MountUpdate() end)
 	end
 
 	local fragment = ZO_SimpleSceneFragment:New(Scholar_ResearchTimersContainer)

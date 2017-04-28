@@ -6,7 +6,7 @@
 
 ## Title: Scholar
 ## Description: This addon simplifies and enhances various aspects of researching and crafting
-## Version: 1.1.0
+## Version: 1.1.1
 ## Author: Widget Interactive
 ## APIVersion: 100018
 ## SavedVariables: Scholar_SavedVariables
