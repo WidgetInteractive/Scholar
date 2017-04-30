@@ -2,6 +2,12 @@
 Scholar_Timers    = {}
 Scholar_Timer_Bar = {}
 
+local colorYellow     = "|cFFFF00"
+local colorSoftYellow = "|cCCCC00"
+local colorRed        = "|cFF0000"
+local colorBlue       = "|c1155bb"
+local colorWidget     = "|c1fda9a"
+
 -- Setup new bar ---------------------------------------------------------------
 function Scholar_Timer_Bar:New()
 	local ret    = setmetatable({}, self)
@@ -160,12 +166,12 @@ function Scholar_Timer_Bar:Completed()
 	local label = ""
 
 	if self.craftingSkillType then
-		local skillName = GetSkillLineInfo(GetCraftingSkillLineIndices(self.craftingSkillType))
-		local name      = GetSmithingResearchLineInfo(self.craftingSkillType, self.researchLineIndex)
-		local traitName = GetString("SI_ITEMTRAITTYPE", GetSmithingResearchLineTraitInfo(self.craftingSkillType, self.researchLineIndex, self.traitIndex))
+		local skillName  = GetSkillLineInfo(GetCraftingSkillLineIndices(self.craftingSkillType))
+		local name, icon = GetSmithingResearchLineInfo(self.craftingSkillType, self.researchLineIndex)
+		local traitName  = GetString("SI_ITEMTRAITTYPE", GetSmithingResearchLineTraitInfo(self.craftingSkillType, self.researchLineIndex, self.traitIndex))
 
 		key   = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
-		label = skillName .. " " .. name .. " " .. traitName
+		label = zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)
 	else
 		key = "riding"
 		label = GetString(SCHOLAR_STABLE_TIMER_LABEL)
@@ -175,12 +181,11 @@ function Scholar_Timer_Bar:Completed()
 		Scholar_Timers.parent.savedVariables.timers.completed[key] = { craftingSkillType = self.craftingSkillType, researchLineIndex = self.researchLineIndex, traitIndex = self.traitIndex }
 	end
 
-  -- NOT WORKING
 	if Scholar_Timers.parent.savedVariables.timers.notifications == "Chat" then
 		PlaySound("Smithing_Finish_Research")
-		CHAT_SYSTEM:AddMessage(GetString(SCHOLAR_TIMERS_COMPLETED) .. ": " .. label)
+		CHAT_SYSTEM:AddMessage(colorWidget .. "[Scholar] " .. colorYellow .. GetString(SCHOLAR_TIMERS_COMPLETED) .. ": " .. label)
 	elseif Scholar_Timers.parent.savedVariables.timers.notifications == "Announcement" then
-		CENTER_SCREEN_ANNOUNCE:AddMessage(0, CSA_EVENT_COMBINED_TEXT, SOUNDS.SMITHING_FINISH_RESEARCH, GetString(SCHOLAR_TIMERS_COMPLETED), label)
+		CENTER_SCREEN_ANNOUNCE:AddMessage(0, CSA_EVENT_COMBINED_TEXT, SOUNDS.SMITHING_FINISH_RESEARCH, GetString(SCHOLAR_TIMERS_COMPLETED), label, icon, "esoui/art/achievements/achievements_iconbg.dds")
 	end
 
 	if Scholar_Timers.parent.savedVariables.timers.autoClear then

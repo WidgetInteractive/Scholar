@@ -79,7 +79,7 @@ SafeAddString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR, "Gloss Color"),
 SafeAddString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR_TIP, "Set the color used for the gloss (highlight) of the stable timer bar."),
 SafeAddString(SCHOLAR_STABLE_TIMER_LABEL, "Riding skill"),
 SafeAddString(SCHOLAR_TRAIN_RIDING_SKILL, "Train riding skill in"),
-SafeAddString(SCHOLAR_TIMERS_COMPLETED, "Completed training on"),
+SafeAddString(SCHOLAR_TIMERS_COMPLETED, "Completed training"),
 
 -- Dropdown option strings
 SafeAddString(SCHOLAR_OPTION_NONE, "None"),
