@@ -194,6 +194,18 @@ function Scholar_Settings:CreateMenu(parent)
 				},
 				{
 					type    = "dropdown",
+					name    = GetString(SCHOLAR_TIMERS_TIMER_ACTION),
+					tooltip = GetString(SCHOLAR_TIMERS_TIMER_ACTION_TIP),
+					warning = GetString(SCHOLAR_RELOAD_WARNING),
+					choices = {GetString(SCHOLAR_OPTION_FILL), GetString(SCHOLAR_OPTION_DRAIN)},
+					default = GetString(SCHOLAR_OPTION_FILL),
+					getFunc = function() return parent.savedVariables.timers.timerAction end,
+					setFunc = function(timerAction) parent.savedVariables.timers.timerAction = timerAction
+						ReloadUI("ingame")
+					end
+				},
+				{
+					type    = "dropdown",
 					name    = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT),
 					tooltip = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT_TIP),
 					choices = {GetString(SCHOLAR_OPTION_RIGHT), GetString(SCHOLAR_OPTION_LEFT)},

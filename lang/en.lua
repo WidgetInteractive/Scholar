@@ -58,6 +58,8 @@ SafeAddString(SCHOLAR_TIMERS_BACKGROUND_COLOR, "Background Color"), 1),
 SafeAddString(SCHOLAR_TIMERS_BACKGROUND_COLOR_TIP, "Set the color used for the background of individual timer bars."), 1),
 SafeAddString(SCHOLAR_TIMERS_GLOSS_COLOR, "Gloss Color"), 1),
 SafeAddString(SCHOLAR_TIMERS_GLOSS_COLOR_TIP, "Set the color used for the gloss (highlight) of individual timer bars."), 1),
+SafeAddString(SCHOLAR_TIMERS_TIMER_ACTION, "Timer Action", 1),
+SafeAddString(SCHOLAR_TIMERS_TIMER_ACTION_TIP, "Set whether timers should fill or drain as they progress.", 1),
 SafeAddString(SCHOLAR_TIMERS_LABEL_ALIGNMENT, "Label Alignment"), 1),
 SafeAddString(SCHOLAR_TIMERS_LABEL_ALIGNMENT_TIP, "Set whether you prefer timer labels to be right or left aligned."), 1),
 SafeAddString(SCHOLAR_TIMERS_SORT, "Sort Order"), 1),
@@ -105,5 +107,7 @@ SafeAddString(SCHOLAR_OPTION_SOFT_THIN_SHADOW, "Soft Thin Shadow", 1),
 SafeAddString(SCHOLAR_OPTION_SHADOW, "Shadow", 1),
 SafeAddString(SCHOLAR_OPTION_THICK_OUTLINE, "Thick Outline", 1),
 SafeAddString(SCHOLAR_OPTION_THIN_OUTLINE, "Thin Outline", 1),
-SafeAddString(SCHOLAR_OPTION_OUTLINE, "Outline")
+SafeAddString(SCHOLAR_OPTION_OUTLINE, "Outline"),
+SafeAddString(SCHOLAR_OPTION_FILL, "Fill", 1),
+SafeAddString(SCHOLAR_OPTION_DRAIN, "Drain", 1)
 --]]

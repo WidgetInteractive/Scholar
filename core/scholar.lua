@@ -48,6 +48,7 @@ function Scholar:New()
 			backgroundColor       = {0.529, 1, 1, 1},
 			glossColor            = {1, 1, 1, 1},
 			labelAlignment        = GetString(SCHOLAR_OPTION_RIGHT),
+			timerAction           = GetString(SCHOLAR_OPTION_FILL),
 			sort                  = GetString(SCHOLAR_OPTION_DESCENDING),
 			scale                 = 0.7,
 			spacing               = 50,

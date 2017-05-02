@@ -55,7 +55,14 @@ function Scholar_Timer_Bar:Update(time)
 	end
 
 	if time > self.nextBarUpdate then
-		local t = self.barValue + time - self.start
+		local t = ""
+
+		if Scholar_Timers.parent.savedVariables.timers.timerAction == GetString(SCHOLAR_OPTION_DRAIN) then
+			t = self.remaining
+		else
+			t = self.barValue + time - self.start
+		end
+
 		self.progressBar:SetValue(t)
 		self.nextBarUpdate = time + self.updateInterval
 	end
@@ -142,7 +149,12 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 	end
 
 	self.progressBar:SetMinMax(0, self.duration)
-	self.barValue = self.duration-self.remaining
+
+	if Scholar_Timers.parent.savedVariables.timers.timerAction == GetString(SCHOLAR_OPTION_DRAIN) then
+		self.barValue = self.remaining
+	else
+		self.barValue = self.duration-self.remaining
+	end
 
 	self.updateInterval = self.duration/320
 	self.nextBarUpdate  = 0

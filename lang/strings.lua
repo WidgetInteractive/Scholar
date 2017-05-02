@@ -49,6 +49,8 @@ local strings = {
 	SCHOLAR_TIMERS_BACKGROUND_COLOR_TIP       = "Set the color used for the background of individual timer bars.",
 	SCHOLAR_TIMERS_GLOSS_COLOR                = "Gloss Color",
 	SCHOLAR_TIMERS_GLOSS_COLOR_TIP            = "Set the color used for the gloss (highlight) of individual timer bars.",
+	SCHOLAR_TIMERS_TIMER_ACTION               = "Timer Action",
+	SCHOLAR_TIMERS_TIMER_ACTION_TIP           = "Set whether timers should fill or drain as they progress.",
 	SCHOLAR_TIMERS_LABEL_ALIGNMENT            = "Label Alignment",
 	SCHOLAR_TIMERS_LABEL_ALIGNMENT_TIP        = "Set whether you prefer timer labels to be right or left aligned.",
 	SCHOLAR_TIMERS_SORT                       = "Sort Order",
@@ -94,7 +96,9 @@ local strings = {
 	SCHOLAR_OPTION_SHADOW            = "Shadow",
 	SCHOLAR_OPTION_THICK_OUTLINE     = "Thick Outline",
 	SCHOLAR_OPTION_THIN_OUTLINE      = "Thin Outline",
-	SCHOLAR_OPTION_OUTLINE           = "Outline"
+	SCHOLAR_OPTION_OUTLINE           = "Outline",
+	SCHOLAR_OPTION_FILL              = "Fill",
+	SCHOLAR_OPTION_DRAIN             = "Drain"
 }
 for stringId, stringValue in pairs(strings) do
 	ZO_CreateStringId(stringId, stringValue)
