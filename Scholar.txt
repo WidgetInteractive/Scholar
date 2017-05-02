@@ -6,7 +6,7 @@
 
 ## Title: Scholar
 ## Description: This addon simplifies and enhances various aspects of researching and crafting
-## Version: 1.1.1
+## Version: 1.1.2
 ## Author: Widget Interactive
 ## APIVersion: 100018
 ## SavedVariables: Scholar_SavedVariables
@@ -38,6 +38,7 @@ core/scholar.lua
 core/fonts.lua
 core/settings.lua
 core/commands.lua
+core/bindings.xml
 
 ; Modules
 modules/timers.lua

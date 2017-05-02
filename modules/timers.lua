@@ -173,7 +173,9 @@ function Scholar_Timer_Bar:Completed()
 		key   = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
 		label = zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)
 	else
-		key = "riding"
+		local icon = "esoui/art/icons/mounticon_horse_a.dds"
+
+		key   = "riding"
 		label = GetString(SCHOLAR_STABLE_TIMER_LABEL)
 	end
 

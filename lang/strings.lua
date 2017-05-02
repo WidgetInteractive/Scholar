@@ -5,6 +5,9 @@ local strings = {
 	-- Common use
 	SCHOLAR_RELOAD_WARNING = "Changing this setting will reload the UI!",
 
+	-- Keybindings
+	SCHOLAR_KEYBIND_TOGGLE = "Toggle display of timers",
+
 	-- Commands
 	SCHOLAR_COMMANDS_VALID    = "Valid Commands",
 	SCHOLAR_COMMANDS_TIMERS   = "Toggle display of timers",

@@ -1,12 +1,16 @@
--- Constants -------------------------------------------------------------
+-- Constants -------------------------------------------------------------------
 ADDON_NAME    = "Scholar"
-ADDON_VERSION = "1.1.1"
+ADDON_VERSION = "1.1.2"
 ADDON_WEBSITE = "http://www.esoui.com/downloads/info1670-Scholar.html"
 
 -- Local variables -------------------------------------------------------------
 local Scholar = ZO_Object:New()
 
--- Utilities ------------------------------------------------------------------
+-- Hotkey definition -----------------------------------------------------------
+ZO_CreateStringId("SI_BINDING_NAME_SCHOLAR_TITLE", GetString(SCHOLAR_TITLE))
+ZO_CreateStringId("SI_BINDING_NAME_SCHOLAR_TOGGLE_TIMERS", GetString(SCHOLAR_KEYBIND_TOGGLE))
+
+-- Utilities -------------------------------------------------------------------
 function Scholar:SwapSavedVars(useAccountWide)
 	if useAccountWide then
 		self.savedVariables = self.savedAccount
@@ -15,7 +19,7 @@ function Scholar:SwapSavedVars(useAccountWide)
 	end
 end
 
--- Initialization ------------------------------------------------------------
+-- Initialization --------------------------------------------------------------
 function Scholar:New()
 	local norm                     = ZO_NORMAL_TEXT
 	self.FONT_COLOR_NORMAL_DEFAULT = {norm.r, norm.g, norm.b, norm.a}
