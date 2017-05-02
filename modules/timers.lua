@@ -164,19 +164,20 @@ function Scholar_Timer_Bar:Completed()
 
 	local key   = ""
 	local label = ""
+	local icon  = ""
 
 	if self.craftingSkillType then
-		local skillName  = GetSkillLineInfo(GetCraftingSkillLineIndices(self.craftingSkillType))
-		local name, icon = GetSmithingResearchLineInfo(self.craftingSkillType, self.researchLineIndex)
-		local traitName  = GetString("SI_ITEMTRAITTYPE", GetSmithingResearchLineTraitInfo(self.craftingSkillType, self.researchLineIndex, self.traitIndex))
+		local skillName       = GetSkillLineInfo(GetCraftingSkillLineIndices(self.craftingSkillType))
+		local name, craftIcon = GetSmithingResearchLineInfo(self.craftingSkillType, self.researchLineIndex)
+		local traitName       = GetString("SI_ITEMTRAITTYPE", GetSmithingResearchLineTraitInfo(self.craftingSkillType, self.researchLineIndex, self.traitIndex))
 
 		key   = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
 		label = zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)
+		icon  = craftIcon
 	else
-		local icon = "esoui/art/icons/mounticon_horse_a.dds"
-
 		key   = "riding"
 		label = GetString(SCHOLAR_STABLE_TIMER_LABEL)
+		icon = "esoui/art/icons/mounticon_horse_a.dds"
 	end
 
 	if not Scholar_Timers.parent.savedVariables.timers.completed[key] then
