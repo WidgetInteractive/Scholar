@@ -36,12 +36,16 @@ function Scholar:New()
 				x        = 0,
 				y        = 0
 			},
-			completed             = {},
-			riding                = {
+			completed = {},
+			riding    = {
 				inv = -1,
 				sta = -1,
 				spd = -1
 			},
+			hideInCombat          = true,
+			autoClear             = false,
+			notifications         = GetString(SCHOLAR_OPTION_NONE),
+			useAbbr               = false,
 			labelFont             = GetString(SCHOLAR_OPTION_BOLD),
 			labelOutline          = GetString(SCHOLAR_OPTION_SOFT_THICK_SHADOW),
 			labelSize             = 16,
@@ -57,11 +61,8 @@ function Scholar:New()
 			sort                  = GetString(SCHOLAR_OPTION_DESCENDING),
 			scale                 = 0.7,
 			spacing               = 50,
-			hideInCombat          = true,
-			autoClear             = false,
 			stableBackgroundColor = {0.529, 1, 1, 1},
-			stableGlossColor      = {1, 1, 1, 1},
-			notifications         = GetString(SCHOLAR_OPTION_NONE)
+			stableGlossColor      = {1, 1, 1, 1}
 		}
 	}
 

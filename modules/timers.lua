@@ -110,9 +110,8 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 		self.researchLineIndex = researchLineIndex
 		self.traitIndex        = traitIndex
 
-		local skillName = GetSkillLineInfo(GetCraftingSkillLineIndices(craftingSkillType))
-		local name      = GetSmithingResearchLineInfo(craftingSkillType, researchLineIndex)
-		local traitName = GetString("SI_ITEMTRAITTYPE", GetSmithingResearchLineTraitInfo(craftingSkillType, researchLineIndex, traitIndex))
+		local name                 = GetSmithingResearchLineInfo(craftingSkillType, researchLineIndex)
+		local skillName, traitName = Scholar_Helpers:GetSkill(craftingSkillType, researchLineIndex)
 
 		self.duration, self.remaining = GetSmithingResearchLineTraitTimes(craftingSkillType, researchLineIndex, traitIndex)
 		self.label:SetText(string.upper(zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)))
@@ -120,26 +119,9 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 		self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableGlossColor))
 		self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableBackgroundColor))
 
-		local inv, _, sta, _, spd, _ = GetRidingStats()
-		local ridingType = ""
+		local ridingLabel, ridingType = Scholar_Helpers:GetSkill("riding", 0)
 
-		if Scholar_Timers.parent.savedVariables.timers.riding and Scholar_Timers.parent.savedVariables.timers.riding.inv > -1 then
-			if inv > Scholar_Timers.parent.savedVariables.timers.riding.inv then
-				ridingType = GetString(SCHOLAR_STABLE_TIMER_INVENTORY)
-			elseif sta > Scholar_Timers.parent.savedVariables.timers.riding.sta then
-				ridingType = GetString(SCHOLAR_STABLE_TIMER_STAMINA)
-			elseif spd > Scholar_Timers.parent.savedVariables.timers.riding.spd then
-				ridingType = GetString(SCHOLAR_STABLE_TIMER_SPEED)
-			else
-				-- This should never happen. It's really only here for my testing
-				ridingType = GetString(SCHOLAR_STABLE_TIMER_UNKNOWN)
-			end
-		else
-			-- This triggers if a user updates from a pre-1.2.0 version and has an active stable timer
-			ridingType = GetString(SCHOLAR_STABLE_TIMER_UNKNOWN)
-		end
-
-		self.label:SetText(string.upper(zo_strformat("<<1>> - <<2>>", GetString(SCHOLAR_TRAIN_RIDING_SKILL), ridingType)))
+		self.label:SetText(string.upper(zo_strformat("<<1>> - <<2>>", ridingLabel, ridingType)))
 
 		self.remaining, self.duration = GetTimeUntilCanBeTrained()
 		self.duration                 = self.duration/1000
@@ -236,9 +218,18 @@ function Scholar_Timers:ApplySettings()
 		self.timers[self.timerKeys[i]].timeLeftLabel:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.timeColor))
 
 		if self.timerKeys[i] == "riding" then
+			local ridingLabel, ridingType = Scholar_Helpers:GetSkill("riding", 0)
+
+			self.timers[self.timerKeys[i]].label:SetText(string.upper(zo_strformat("<<1>> - <<2>>", ridingLabel, ridingType)))
+
 			self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableGlossColor))
 			self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableBackgroundColor))
 		else
+			local name                 = GetSmithingResearchLineInfo(self.timers[self.timerKeys[i]].craftingSkillType, self.timers[self.timerKeys[i]].researchLineIndex)
+			local skillName, traitName = Scholar_Helpers:GetSkill(self.timers[self.timerKeys[i]].craftingSkillType, self.timers[self.timerKeys[i]].researchLineIndex)
+
+			self.timers[self.timerKeys[i]].label:SetText(string.upper(zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)))
+
 			self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.glossColor))
 			self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.backgroundColor))
 		end

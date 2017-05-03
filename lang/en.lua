@@ -38,6 +38,10 @@ SafeAddString(SCHOLAR_RELOAD_UI_TIP, "Click this button to reload the UI if you 
 
 -- Timers settings
 SafeAddString(SCHOLAR_TIMERS_TITLE, "Research Timer Settings"), 1),
+SafeAddString(SCHOLAR_TIMERS_LABEL_HEADER, "Label Settings", 1),
+SafeAddString(SCHOLAR_TIMERS_DISPLAY_HEADER, "Display Settings", 1),
+SafeAddString(SCHOLAR_TIMERS_USE_ABBR, "Use Abbreviations", 1),
+SafeAddString(SCHOLAR_TIMERS_USE_ABBR_TIP, "Enable this setting to abbreviate skill type and trait names in timer labels.", 1),
 SafeAddString(SCHOLAR_TIMERS_LABEL_FONT, "Label Font"), 1),
 SafeAddString(SCHOLAR_TIMERS_LABEL_FONT_TIP, "Set the font used for timer labels."), 1),
 SafeAddString(SCHOLAR_TIMERS_LABEL_OUTLINE, "Label Outline"), 1),
@@ -113,5 +117,35 @@ SafeAddString(SCHOLAR_OPTION_THICK_OUTLINE, "Thick Outline", 1),
 SafeAddString(SCHOLAR_OPTION_THIN_OUTLINE, "Thin Outline", 1),
 SafeAddString(SCHOLAR_OPTION_OUTLINE, "Outline"),
 SafeAddString(SCHOLAR_OPTION_FILL, "Fill", 1),
-SafeAddString(SCHOLAR_OPTION_DRAIN, "Drain", 1)
+SafeAddString(SCHOLAR_OPTION_DRAIN, "Drain", 1),
+
+-- Crafting type abbreviations
+SafeAddString(SCHOLAR_ABBR_BLACKSMITHING, "Bl", 1),
+SafeAddString(SCHOLAR_ABBR_CLOTHING, "Cl", 1),
+SafeAddString(SCHOLAR_ABBR_WOODWORKING, "Ww", 1),
+
+-- Crafting trait abbreviations
+SafeAddString(SCHOLAR_ABBR_POWERED, "Pwd", 1),
+SafeAddString(SCHOLAR_ABBR_CHARGED, "Chg", 1),
+SafeAddString(SCHOLAR_ABBR_PRECISE, "Pre", 1),
+SafeAddString(SCHOLAR_ABBR_INFUSED, "Inf", 1),
+SafeAddString(SCHOLAR_ABBR_DEFENDING, "Def", 1),
+SafeAddString(SCHOLAR_ABBR_TRAINING, "Tra", 1),
+SafeAddString(SCHOLAR_ABBR_SHARPENED, "Sha", 1),
+SafeAddString(SCHOLAR_ABBR_DECISIVE, "Dec", 1),
+SafeAddString(SCHOLAR_ABBR_STURDY , "Stu", 1),
+SafeAddString(SCHOLAR_ABBR_IMPENETRABLE, "Imp", 1),
+SafeAddString(SCHOLAR_ABBR_REINFORCED, "Ren", 1),
+SafeAddString(SCHOLAR_ABBR_WELLFITTED, "Fit", 1),
+SafeAddString(SCHOLAR_ABBR_PROSPEROUS, "Pro", 1),
+SafeAddString(SCHOLAR_ABBR_DIVINES, "Div", 1),
+SafeAddString(SCHOLAR_ABBR_NIRNHONED, "Nrn", 1),
+
+-- Riding abbreviations
+SafeAddString(SCHOLAR_ABBR_RIDING, "Ri", 1),
+SafeAddString(SCHOLAR_ABBR_SPEED, "Spd", 1),
+SafeAddString(SCHOLAR_ABBR_CAPACITY, "Cap", 1),
+SafeAddString(SCHOLAR_ABBR_STAMINA, "Sta", 1),
+
+SafeAddString(SCHOLAR_ABBR_UNKNOWN, "Unk", 1)
 --]]

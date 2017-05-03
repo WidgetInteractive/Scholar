@@ -81,6 +81,49 @@ function Scholar_Settings:CreateMenu(parent)
 			name     = GetString(SCHOLAR_TIMERS_TITLE),
 			controls = {
 				{
+					type    = "checkbox",
+					name    = GetString(SCHOLAR_TIMERS_HIDE_IN_COMBAT),
+					tooltip = GetString(SCHOLAR_TIMERS_HIDE_IN_COMBAT_TIP),
+					default = true,
+					getFunc = function() return parent.savedVariables.timers.hideInCombat end,
+					setFunc = function(hideInCombat) parent.savedVariables.timers.hideInCombat = hideInCombat
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "checkbox",
+					name    = GetString(SCHOLAR_TIMERS_AUTOCLEAR),
+					tooltip = GetString(SCHOLAR_TIMERS_AUTOCLEAR_TIP),
+					default = false,
+					getFunc = function() return parent.savedVariables.timers.autoClear end,
+					setFunc = function(autoClear) parent.savedVariables.timers.autoClear = autoClear
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "dropdown",
+					name    = GetString(SCHOLAR_TIMERS_NOTIFICATIONS),
+					tooltip = GetString(SCHOLAR_TIMERS_NOTIFICATIONS_TIP),
+					choices = {GetString(SCHOLAR_OPTION_NONE), GetString(SCHOLAR_OPTION_CHAT), GetString(SCHOLAR_OPTION_ANNOUNCEMENT)},
+					default = GetString(SCHOLAR_OPTION_NONE),
+					getFunc = function() return parent.savedVariables.timers.notifications end,
+					setFunc = function(notifications) parent.savedVariables.timers.notifications = notifications end
+				},
+				{
+					type = "header",
+					name = GetString(SCHOLAR_TIMERS_LABEL_HEADER)
+				},
+				{
+					type    = "checkbox",
+					name    = GetString(SCHOLAR_TIMERS_USE_ABBR),
+					tooltip = GetString(SCHOLAR_TIMERS_USE_ABBR_TIP),
+					default = false,
+					getFunc = function() return parent.savedVariables.timers.useAbbr end,
+					setFunc = function(useAbbr) parent.savedVariables.timers.useAbbr = useAbbr
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
 					type    = "dropdown",
 					name    = GetString(SCHOLAR_TIMERS_LABEL_FONT),
 					tooltip = GetString(SCHOLAR_TIMERS_LABEL_FONT_TIP),
@@ -194,6 +237,21 @@ function Scholar_Settings:CreateMenu(parent)
 				},
 				{
 					type    = "dropdown",
+					name    = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT),
+					tooltip = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT_TIP),
+					choices = {GetString(SCHOLAR_OPTION_RIGHT), GetString(SCHOLAR_OPTION_LEFT)},
+					default = GetString(SCHOLAR_OPTION_RIGHT),
+					getFunc = function() return parent.savedVariables.timers.labelAlignment end,
+					setFunc = function(labelAlignment) parent.savedVariables.timers.labelAlignment = labelAlignment
+						Scholar_Timers:RearrangeBars()
+					end
+				},
+				{
+					type = "header",
+					name = GetString(SCHOLAR_TIMERS_DISPLAY_HEADER)
+				},
+				{
+					type    = "dropdown",
 					name    = GetString(SCHOLAR_TIMERS_TIMER_ACTION),
 					tooltip = GetString(SCHOLAR_TIMERS_TIMER_ACTION_TIP),
 					warning = GetString(SCHOLAR_RELOAD_WARNING),
@@ -202,17 +260,6 @@ function Scholar_Settings:CreateMenu(parent)
 					getFunc = function() return parent.savedVariables.timers.timerAction end,
 					setFunc = function(timerAction) parent.savedVariables.timers.timerAction = timerAction
 						ReloadUI("ingame")
-					end
-				},
-				{
-					type    = "dropdown",
-					name    = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT),
-					tooltip = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT_TIP),
-					choices = {GetString(SCHOLAR_OPTION_RIGHT), GetString(SCHOLAR_OPTION_LEFT)},
-					default = GetString(SCHOLAR_OPTION_RIGHT),
-					getFunc = function() return parent.savedVariables.timers.labelAlignment end,
-					setFunc = function(labelAlignment) parent.savedVariables.timers.labelAlignment = labelAlignment
-						Scholar_Timers:RearrangeBars()
 					end
 				},
 				{
@@ -253,35 +300,6 @@ function Scholar_Settings:CreateMenu(parent)
 					setFunc = function(spacing) parent.savedVariables.timers.spacing = spacing
 						Scholar_Timers:RearrangeBars()
 					end
-				},
-				{
-					type    = "checkbox",
-					name    = GetString(SCHOLAR_TIMERS_HIDE_IN_COMBAT),
-					tooltip = GetString(SCHOLAR_TIMERS_HIDE_IN_COMBAT_TIP),
-					default = true,
-					getFunc = function() return parent.savedVariables.timers.hideInCombat end,
-					setFunc = function(hideInCombat) parent.savedVariables.timers.hideInCombat = hideInCombat
-						Scholar_Timers:ApplySettings()
-					end
-				},
-				{
-					type    = "checkbox",
-					name    = GetString(SCHOLAR_TIMERS_AUTOCLEAR),
-					tooltip = GetString(SCHOLAR_TIMERS_AUTOCLEAR_TIP),
-					default = false,
-					getFunc = function() return parent.savedVariables.timers.autoClear end,
-					setFunc = function(autoClear) parent.savedVariables.timers.autoClear = autoClear
-						Scholar_Timers:ApplySettings()
-					end
-				},
-				{
-					type    = "dropdown",
-					name    = GetString(SCHOLAR_TIMERS_NOTIFICATIONS),
-					tooltip = GetString(SCHOLAR_TIMERS_NOTIFICATIONS_TIP),
-					choices = {GetString(SCHOLAR_OPTION_NONE), GetString(SCHOLAR_OPTION_CHAT), GetString(SCHOLAR_OPTION_ANNOUNCEMENT)},
-					default = GetString(SCHOLAR_OPTION_NONE),
-					getFunc = function() return parent.savedVariables.timers.notifications end,
-					setFunc = function(notifications) parent.savedVariables.timers.notifications = notifications end
 				}
 			}
 		},

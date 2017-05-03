@@ -29,6 +29,10 @@ local strings = {
 
 	-- Timers settings
 	SCHOLAR_TIMERS_TITLE                      = "Research Timer Settings",
+	SCHOLAR_TIMERS_LABEL_HEADER               = "Label Settings",
+	SCHOLAR_TIMERS_DISPLAY_HEADER             = "Display Settings",
+	SCHOLAR_TIMERS_USE_ABBR                   = "Use Abbreviations",
+	SCHOLAR_TIMERS_USE_ABBR_TIP               = "Enable this setting to abbreviate skill type and trait names in timer labels.",
 	SCHOLAR_TIMERS_LABEL_FONT                 = "Label Font",
 	SCHOLAR_TIMERS_LABEL_FONT_TIP             = "Set the font used for timer labels.",
 	SCHOLAR_TIMERS_LABEL_OUTLINE              = "Label Outline",
@@ -102,7 +106,37 @@ local strings = {
 	SCHOLAR_OPTION_THIN_OUTLINE      = "Thin Outline",
 	SCHOLAR_OPTION_OUTLINE           = "Outline",
 	SCHOLAR_OPTION_FILL              = "Fill",
-	SCHOLAR_OPTION_DRAIN             = "Drain"
+	SCHOLAR_OPTION_DRAIN             = "Drain",
+
+	-- Crafting type abbreviations
+	SCHOLAR_ABBR_BLACKSMITHING = "Bl",
+	SCHOLAR_ABBR_CLOTHING      = "Cl",
+	SCHOLAR_ABBR_WOODWORKING   = "Ww",
+
+	-- Crafting trait abbreviations
+	SCHOLAR_ABBR_POWERED      = "Pwd",
+	SCHOLAR_ABBR_CHARGED      = "Chg",
+	SCHOLAR_ABBR_PRECISE      = "Pre",
+	SCHOLAR_ABBR_INFUSED      = "Inf",
+	SCHOLAR_ABBR_DEFENDING    = "Def",
+	SCHOLAR_ABBR_TRAINING     = "Tra",
+	SCHOLAR_ABBR_SHARPENED    = "Sha",
+	SCHOLAR_ABBR_DECISIVE     = "Dec",
+	SCHOLAR_ABBR_STURDY       = "Stu",
+	SCHOLAR_ABBR_IMPENETRABLE = "Imp",
+	SCHOLAR_ABBR_REINFORCED   = "Ren",
+	SCHOLAR_ABBR_WELLFITTED   = "Fit",
+	SCHOLAR_ABBR_PROSPEROUS   = "Pro",
+	SCHOLAR_ABBR_DIVINES      = "Div",
+	SCHOLAR_ABBR_NIRNHONED    = "Nrn",
+
+	-- Riding abbreviations
+	SCHOLAR_ABBR_RIDING   = "Ri",
+	SCHOLAR_ABBR_SPEED    = "Spd",
+	SCHOLAR_ABBR_CAPACITY = "Cap",
+	SCHOLAR_ABBR_STAMINA  = "Sta",
+
+	SCHOLAR_ABBR_UNKNOWN = "Unk"
 }
 for stringId, stringValue in pairs(strings) do
 	ZO_CreateStringId(stringId, stringValue)
