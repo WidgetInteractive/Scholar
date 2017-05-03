@@ -374,7 +374,6 @@ function Scholar_Timers:Initialize(parent)
 	Scholar_Timers.timerKeys     = {}
 	Scholar_Timers.parent        = parent
 	Scholar_Timers.smithingTypes = {CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAFTING_TYPE_WOODWORKING}
-	Scholar_Timers.riding        = {}
 
 	Scholar_ResearchTimersContainer:SetAnchor(Scholar_Timers.parent.savedVariables.timers.position.point, GuiRoot, Scholar_Timers.parent.savedVariables.timers.position.relPoint, Scholar_Timers.parent.savedVariables.timers.position.x, Scholar_Timers.parent.savedVariables.timers.position.y)
 	Scholar_ResearchTimersContainer:SetScale(Scholar_Timers.parent.savedVariables.timers.scale)
