@@ -1,3 +1,9 @@
+= 1.2.0 (May 3, 2017) =
+* Improved: Settings layout
+* Added: Option to display timers with a reverse fill (drain) effect
+* Added: Option to abbreviate skill and trait names
+* Added: Detail to stable timers
+
 = 1.1.2 (May 1, 2017) =
 * Improved: Announcement notification for stable timers
 * Added: Keybinding to toggle timer display

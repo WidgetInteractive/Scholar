@@ -1,6 +1,6 @@
 -- Constants -------------------------------------------------------------------
 ADDON_NAME    = "Scholar"
-ADDON_VERSION = "1.1.2"
+ADDON_VERSION = "1.2.0"
 ADDON_WEBSITE = "http://www.esoui.com/downloads/info1670-Scholar.html"
 
 -- Local variables -------------------------------------------------------------
