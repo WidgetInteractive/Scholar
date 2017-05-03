@@ -120,7 +120,26 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 		self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableGlossColor))
 		self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableBackgroundColor))
 
-		self.label:SetText(string.upper(GetString(SCHOLAR_TRAIN_RIDING_SKILL)))
+		local inv, _, sta, _, spd, _ = GetRidingStats()
+		local ridingType = ""
+
+		if Scholar_Timers.parent.savedVariables.timers.riding and Scholar_Timers.parent.savedVariables.timers.riding.inv > -1 then
+			if inv > Scholar_Timers.parent.savedVariables.timers.riding.inv then
+				ridingType = GetString(SCHOLAR_STABLE_TIMER_INVENTORY)
+			elseif sta > Scholar_Timers.parent.savedVariables.timers.riding.sta then
+				ridingType = GetString(SCHOLAR_STABLE_TIMER_STAMINA)
+			elseif spd > Scholar_Timers.parent.savedVariables.timers.riding.spd then
+				ridingType = GetString(SCHOLAR_STABLE_TIMER_SPEED)
+			else
+				-- This should never happen. It's really only here for my testing
+				ridingType = GetString(SCHOLAR_STABLE_TIMER_UNKNOWN)
+			end
+		else
+			-- This triggers if a user updates from a pre-1.2.0 version and has an active stable timer
+			ridingType = GetString(SCHOLAR_STABLE_TIMER_UNKNOWN)
+		end
+
+		self.label:SetText(string.upper(zo_strformat("<<1>> - <<2>>", GetString(SCHOLAR_TRAIN_RIDING_SKILL), ridingType)))
 
 		self.remaining, self.duration = GetTimeUntilCanBeTrained()
 		self.duration                 = self.duration/1000
@@ -316,6 +335,14 @@ function Scholar_Timers_Toggle()
 end
 
 -- Mount update ----------------------------------------------------------------
+function Scholar_Timers:PreMountUpdate()
+	local inv, _, sta, _, spd, _ = GetRidingStats()
+
+	Scholar_Timers.parent.savedVariables.timers.riding.inv = inv
+	Scholar_Timers.parent.savedVariables.timers.riding.sta = sta
+	Scholar_Timers.parent.savedVariables.timers.riding.spd = spd
+end
+
 function Scholar_Timers:MountUpdate()
 	if self.timers["riding"] then
 		return
@@ -347,6 +374,7 @@ function Scholar_Timers:Initialize(parent)
 	Scholar_Timers.timerKeys     = {}
 	Scholar_Timers.parent        = parent
 	Scholar_Timers.smithingTypes = {CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAFTING_TYPE_WOODWORKING}
+	Scholar_Timers.riding        = {}
 
 	Scholar_ResearchTimersContainer:SetAnchor(Scholar_Timers.parent.savedVariables.timers.position.point, GuiRoot, Scholar_Timers.parent.savedVariables.timers.position.relPoint, Scholar_Timers.parent.savedVariables.timers.position.x, Scholar_Timers.parent.savedVariables.timers.position.y)
 	Scholar_ResearchTimersContainer:SetScale(Scholar_Timers.parent.savedVariables.timers.scale)
@@ -397,6 +425,7 @@ function Scholar_Timers:Initialize(parent)
 
 	if Scholar_Timers.parent.savedVariables.enable.stableTimer then
 		Scholar_Timers:MountUpdate()
+		STABLE_MANAGER:RegisterCallback("StableInteractStart", function() Scholar_Timers:PreMountUpdate() end)
 		STABLE_MANAGER:RegisterCallback("StableInteractEnd", function() Scholar_Timers:MountUpdate() end)
 	end
 

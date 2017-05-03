@@ -83,6 +83,10 @@ SafeAddString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR_TIP, "Set the color used for
 SafeAddString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR, "Gloss Color", 1),
 SafeAddString(SCHOLAR_STABLE_TIMER_GLOSS_COLOR_TIP, "Set the color used for the gloss (highlight) of the stable timer bar.", 1),
 SafeAddString(SCHOLAR_STABLE_TIMER_LABEL, "Riding skill", 1),
+SafeAddString(SCHOLAR_STABLE_TIMER_INVENTORY, "Inventory", 1),
+SafeAddString(SCHOLAR_STABLE_TIMER_STAMINA, "Stamina", 1),
+SafeAddString(SCHOLAR_STABLE_TIMER_SPEED, "Speed", 1),
+SafeAddString(SCHOLAR_STABLE_TIMER_UNKNOWN, "Unknown", 1),
 SafeAddString(SCHOLAR_TRAIN_RIDING_SKILL, "Train riding skill in", 1),
 SafeAddString(SCHOLAR_TIMERS_COMPLETED, "Completed training", 1),
 

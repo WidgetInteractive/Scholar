@@ -37,6 +37,11 @@ function Scholar:New()
 				y        = 0
 			},
 			completed             = {},
+			riding                = {
+				inv = -1,
+				sta = -1,
+				spd = -1
+			},
 			labelFont             = GetString(SCHOLAR_OPTION_BOLD),
 			labelOutline          = GetString(SCHOLAR_OPTION_SOFT_THICK_SHADOW),
 			labelSize             = 16,

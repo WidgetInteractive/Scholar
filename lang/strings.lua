@@ -72,7 +72,11 @@ local strings = {
 	SCHOLAR_STABLE_TIMER_GLOSS_COLOR          = "Gloss Color",
 	SCHOLAR_STABLE_TIMER_GLOSS_COLOR_TIP      = "Set the color used for the gloss (highlight) of the stable timer bar.",
 	SCHOLAR_STABLE_TIMER_LABEL                = "Riding skill",
-	SCHOLAR_TRAIN_RIDING_SKILL                = "Train riding skill in",
+	SCHOLAR_STABLE_TIMER_INVENTORY            = "Inventory",
+	SCHOLAR_STABLE_TIMER_STAMINA              = "Stamina",
+	SCHOLAR_STABLE_TIMER_SPEED                = "Speed",
+	SCHOLAR_STABLE_TIMER_UNKNOWN              = "Unknown",
+	SCHOLAR_TRAIN_RIDING_SKILL                = "Riding",
 	SCHOLAR_TIMERS_COMPLETED                  = "Completed research",
 
 	-- Dropdown option strings
