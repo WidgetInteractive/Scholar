@@ -24,7 +24,7 @@ local NodeSkills = {
 	[21] = {name = GetString(SI_ITEMTRAITTYPE26), abbr = GetString(SCHOLAR_ABBR_NIRNHONED)},
 	[22] = {name = GetString(SI_RIDINGTRAINTYPE1), abbr = GetString(SCHOLAR_ABBR_SPEED)},
 	[23] = {name = GetString(SI_RIDINGTRAINTYPE2), abbr = GetString(SCHOLAR_ABBR_CAPACITY)},
-	[24] = {name = GetString(SI_RIDINGTRAINTYPE2), abbr = GetString(SCHOLAR_ABBR_STAMINA)},
+	[24] = {name = GetString(SI_RIDINGTRAINTYPE3), abbr = GetString(SCHOLAR_ABBR_STAMINA)},
 }
 
 function Scholar_Helpers:AbbrSkill(skill)
