@@ -22,6 +22,7 @@ function Scholar_Timer_Bar:Destroy()
 	self.barsPool:ReleaseObject(self.barKey)
 
 	local key = ""
+	local uid = GetCurrentCharacterId()
 
 	if self.craftingSkillType then
 		key = self.craftingSkillType .. " " .. self.researchLineIndex .. " " .. self.traitIndex
@@ -29,8 +30,8 @@ function Scholar_Timer_Bar:Destroy()
 		key = "riding"
 	end
 
-	Scholar_Timers.timers[key]                                 = nil
-	Scholar_Timers.parent.savedVariables.timers.completed[key] = nil
+	Scholar_Timers.timers[key]                                      = nil
+	Scholar_Timers.parent.savedVariables.timers.completed[uid][key] = nil
 
 	for i=1, #Scholar_Timers.timerKeys do
 		if Scholar_Timers.timerKeys[i] == key then
@@ -167,10 +168,18 @@ end
 
 -- Complete --------------------------------------------------------------------
 function Scholar_Timer_Bar:Completed()
+	local uid = GetCurrentCharacterId();
+
 	self.bar:GetNamedChild("Close"):SetHidden(false)
 	self.bar:SetHandler("OnUpdate", nil)
 	self.progressBar:SetMinMax(0, 1)
-	self.progressBar:SetValue(1)
+
+	if Scholar_Timers.parent.savedVariables.timers.timerAction == GetString(SCHOLAR_OPTION_DRAIN) then
+		self.progressBar:SetValue(0)
+	else
+		self.progressBar:SetValue(1)
+	end
+
 	self.completed = true
 
 	self.timeLeftLabel:SetText(GetString(SI_ACHIEVEMENTS_TOOLTIP_COMPLETE) .. "!")
@@ -193,8 +202,8 @@ function Scholar_Timer_Bar:Completed()
 		icon = "esoui/art/icons/mounticon_horse_a.dds"
 	end
 
-	if not Scholar_Timers.parent.savedVariables.timers.completed[key] then
-		Scholar_Timers.parent.savedVariables.timers.completed[key] = { craftingSkillType = self.craftingSkillType, researchLineIndex = self.researchLineIndex, traitIndex = self.traitIndex }
+	if not Scholar_Timers.parent.savedVariables.timers.completed[uid][key] then
+		Scholar_Timers.parent.savedVariables.timers.completed[uid][key] = { craftingSkillType = self.craftingSkillType, researchLineIndex = self.researchLineIndex, traitIndex = self.traitIndex }
 	end
 
 	if Scholar_Timers.parent.savedVariables.timers.notifications == "Chat" then
@@ -361,6 +370,8 @@ end
 function Scholar_Timers:Initialize(parent)
 	Scholar_Timer_Bar:Initialize()
 
+	local uid = GetCurrentCharacterId()
+
 	Scholar_Timers.timers        = {}
 	Scholar_Timers.timerKeys     = {}
 	Scholar_Timers.parent        = parent
@@ -403,7 +414,11 @@ function Scholar_Timers:Initialize(parent)
 			Scholar_Timers:AddResearchTimer(timers[i][2], timers[i][3], timers[i][4])
 		end
 
-		for k, v in pairs(Scholar_Timers.parent.savedVariables.timers.completed) do
+		if not Scholar_Timers.parent.savedVariables.timers.completed[uid] then
+			Scholar_Timers.parent.savedVariables.timers.completed[uid] = {}
+		end
+
+		for k, v in pairs(Scholar_Timers.parent.savedVariables.timers.completed[uid]) do
 			Scholar_Timers.ResearchCompleted(nil, v.craftingSkillType, v.researchLineIndex, v.traitIndex)
 		end
 
