@@ -1,3 +1,6 @@
+= 1.2.2 (May 6, 2017) =
+* Fixed: Incorrectly getting trait indexes
+
 = 1.2.1 (May 5, 2017) =
 * Fixed: Riding timer abbreviation bug for stamina and capacity
 * Fixed: Drain option completion background bug

@@ -112,7 +112,7 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 		self.traitIndex        = traitIndex
 
 		local name                 = GetSmithingResearchLineInfo(craftingSkillType, researchLineIndex)
-		local skillName, traitName = Scholar_Helpers:GetSkill(craftingSkillType, researchLineIndex)
+		local skillName, traitName = Scholar_Helpers:GetSkill(craftingSkillType, researchLineIndex, traitIndex)
 
 		self.duration, self.remaining = GetSmithingResearchLineTraitTimes(craftingSkillType, researchLineIndex, traitIndex)
 		self.label:SetText(string.upper(zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)))
@@ -120,7 +120,7 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 		self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableGlossColor))
 		self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableBackgroundColor))
 
-		local ridingLabel, ridingType = Scholar_Helpers:GetSkill("riding", 0)
+		local ridingLabel, ridingType = Scholar_Helpers:GetSkill("riding", 0, 0)
 
 		self.label:SetText(string.upper(zo_strformat("<<1>> - <<2>>", ridingLabel, ridingType)))
 
@@ -227,7 +227,7 @@ function Scholar_Timers:ApplySettings()
 		self.timers[self.timerKeys[i]].timeLeftLabel:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.timeColor))
 
 		if self.timerKeys[i] == "riding" then
-			local ridingLabel, ridingType = Scholar_Helpers:GetSkill("riding", 0)
+			local ridingLabel, ridingType = Scholar_Helpers:GetSkill("riding", 0, 0)
 
 			self.timers[self.timerKeys[i]].label:SetText(string.upper(zo_strformat("<<1>> - <<2>>", ridingLabel, ridingType)))
 
@@ -235,7 +235,7 @@ function Scholar_Timers:ApplySettings()
 			self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.stableBackgroundColor))
 		else
 			local name                 = GetSmithingResearchLineInfo(self.timers[self.timerKeys[i]].craftingSkillType, self.timers[self.timerKeys[i]].researchLineIndex)
-			local skillName, traitName = Scholar_Helpers:GetSkill(self.timers[self.timerKeys[i]].craftingSkillType, self.timers[self.timerKeys[i]].researchLineIndex)
+			local skillName, traitName = Scholar_Helpers:GetSkill(self.timers[self.timerKeys[i]].craftingSkillType, self.timers[self.timerKeys[i]].researchLineIndex, self.timers[self.timerKeys[i]].traitIndex)
 
 			self.timers[self.timerKeys[i]].label:SetText(string.upper(zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)))
 

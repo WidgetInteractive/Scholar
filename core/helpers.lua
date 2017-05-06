@@ -39,7 +39,7 @@ function Scholar_Helpers:AbbrSkill(skill)
 	return abbr
 end
 
-function Scholar_Helpers:GetSkill(craftingSkillType, researchLineIndex)
+function Scholar_Helpers:GetSkill(craftingSkillType, researchLineIndex, traitIndex)
 	local skillName, traitName = ""
 
 	if craftingSkillType == "riding" then
