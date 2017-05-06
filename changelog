@@ -1,3 +1,8 @@
+= 1.2.1 (May 5, 2017) =
+* Fixed: Riding timer abbreviation bug for stamina and capacity
+* Fixed: Drain option completion background bug
+* Fixed: Multi-character completed research bug
+
 = 1.2.0 (May 3, 2017) =
 * Improved: Settings layout
 * Added: Option to display timers with a reverse fill (drain) effect
