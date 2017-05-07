@@ -1,3 +1,6 @@
+= 1.2.3 (May 7, 2017) =
+* Fixed: Typo in carry capacity riding trait
+
 = 1.2.2 (May 6, 2017) =
 * Fixed: Incorrectly getting trait indexes
 
