@@ -12,11 +12,11 @@ function Scholar_Settings:CreateMenu(parent)
 		name                = GetString(SCHOLAR_TITLE),
 		displayName         = GetString(SCHOLAR_TITLE),
 		author              = "Widget Interactive",
-		version             = ADDON_VERSION,
+		version             = SCHOLAR_VERSION,
 		slashCommand        = "/scholar_settings",
 		registerForRefresh  = true,
 		registerForDefaults = true,
-		website             = ADDON_WEBSITE
+		website             = SCHOLAR_WEBSITE
 	}
 	LAM:RegisterAddonPanel("Scholar_Settings", panelData)
 

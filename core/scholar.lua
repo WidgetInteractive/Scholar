@@ -1,7 +1,7 @@
 -- Constants -------------------------------------------------------------------
-ADDON_NAME    = "Scholar"
-ADDON_VERSION = "1.2.3"
-ADDON_WEBSITE = "http://www.esoui.com/downloads/info1670-Scholar.html"
+SCHOLAR_NAME    = "Scholar"
+SCHOLAR_VERSION = "1.2.3"
+SCHOLAR_WEBSITE = "http://www.esoui.com/downloads/info1670-Scholar.html"
 
 -- Local variables -------------------------------------------------------------
 local Scholar = ZO_Object:New()
@@ -87,8 +87,8 @@ function Scholar:Initialize()
 end
 
 local function OnAddonLoaded(event, addonName)
-	if addonName == ADDON_NAME then
+	if addonName == SCHOLAR_NAME then
 		SCHOLAR = Scholar:New()
 	end
 end
-EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_ADD_ON_LOADED, OnAddonLoaded)
+EVENT_MANAGER:RegisterForEvent(SCHOLAR_NAME, EVENT_ADD_ON_LOADED, OnAddonLoaded)
