@@ -119,6 +119,12 @@ function Scholar_Settings:CreateMenu(parent)
 					setFunc = function(sound) parent.savedVariables.timers.notificationSound = sound end
 				},
 				{
+					type    = "button",
+					name    = GetString(SCHOLAR_TIMERS_NOTIFICATION_SOUND_TEST),
+					tooltip = GetString(SCHOLAR_TIMERS_NOTIFICATION_SOUND_TEST_TIP),
+					func    = function() PlaySound(parent.savedVariables.timers.notificationSound) end
+				},
+				{
 					type = "header",
 					name = GetString(SCHOLAR_TIMERS_LABEL_HEADER)
 				},
