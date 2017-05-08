@@ -207,10 +207,10 @@ function Scholar_Timer_Bar:Completed()
 	end
 
 	if Scholar_Timers.parent.savedVariables.timers.notifications == "Chat" then
-		PlaySound("Smithing_Finish_Research")
+		PlaySound(Scholar_Timers.parent.savedVariables.timers.notificationSound)
 		CHAT_SYSTEM:AddMessage(colorWidget .. "[Scholar] " .. colorYellow .. GetString(SCHOLAR_TIMERS_COMPLETED) .. ": " .. label)
 	elseif Scholar_Timers.parent.savedVariables.timers.notifications == "Announcement" then
-		CENTER_SCREEN_ANNOUNCE:AddMessage(0, CSA_EVENT_COMBINED_TEXT, SOUNDS.SMITHING_FINISH_RESEARCH, GetString(SCHOLAR_TIMERS_COMPLETED), label, icon, "esoui/art/achievements/achievements_iconbg.dds")
+		CENTER_SCREEN_ANNOUNCE:AddMessage(0, CSA_EVENT_COMBINED_TEXT, Scholar_Timers.parent.savedVariables.timers.notificationSound, GetString(SCHOLAR_TIMERS_COMPLETED), label, icon, "esoui/art/achievements/achievements_iconbg.dds")
 	end
 
 	if Scholar_Timers.parent.savedVariables.timers.autoClear then

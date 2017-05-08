@@ -13,6 +13,10 @@ local strings = {
 	SCHOLAR_COMMANDS_TIMERS   = "Toggle display of timers",
 	SCHOLAR_COMMANDS_SETTINGS = "Display settings panel",
 	SCHOLAR_COMMANDS_NONE     = "There are no valid slash commands for the current configuration.",
+	SCHOLAR_COMMANDS_SET      = "Set custom options for a certain available settings.",
+
+	-- Commands - set
+	SCHOLAR_COMMANDS_SET_TIMERSOUND = "Set a custom sound for notification timers (See http://wiki.esoui.com/Sounds).",
 
 	-- General settings
 	SCHOLAR_GENERAL_TITLE           = "General Settings",
@@ -69,6 +73,8 @@ local strings = {
 	SCHOLAR_TIMERS_AUTOCLEAR_TIP              = "Enable this setting to automatically clear research timers when they are completed.",
 	SCHOLAR_TIMERS_NOTIFICATIONS              = "Notification Type",
 	SCHOLAR_TIMERS_NOTIFICATIONS_TIP          = "Choose how notifications should be displayed when research completes.",
+	SCHOLAR_TIMERS_NOTIFICATION_SOUND         = "Notification Sound",
+	SCHOLAR_TIMERS_NOTIFICATION_SOUND_TIP     = "Choose the sound effect played when research completes.",
 	SCHOLAR_STABLE_TIMER_TITLE                = "Stable Timer Settings",
 	SCHOLAR_STABLE_TIMER_DESCRIPTION          = "The stable timer inherits its settings from the research timers, but the timer color can be independently configured for clarity.",
 	SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR     = "Background Color",

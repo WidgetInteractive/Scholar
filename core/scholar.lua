@@ -45,6 +45,7 @@ function Scholar:New()
 			hideInCombat          = true,
 			autoClear             = false,
 			notifications         = GetString(SCHOLAR_OPTION_NONE),
+			notificationSound     = "Smithing_Finish_Research",
 			useAbbr               = false,
 			labelFont             = GetString(SCHOLAR_OPTION_BOLD),
 			labelOutline          = GetString(SCHOLAR_OPTION_SOFT_THICK_SHADOW),

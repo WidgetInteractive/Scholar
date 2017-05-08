@@ -37,6 +37,7 @@ libs/LibAddonMenu-2.0/controls/iconpicker.lua
 core/scholar.lua
 core/helpers.lua
 core/fonts.lua
+core/sounds.lua
 core/settings.lua
 core/commands.lua
 core/bindings.xml

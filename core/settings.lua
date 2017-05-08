@@ -110,6 +110,15 @@ function Scholar_Settings:CreateMenu(parent)
 					setFunc = function(notifications) parent.savedVariables.timers.notifications = notifications end
 				},
 				{
+					type    = "dropdown",
+					name    = GetString(SCHOLAR_TIMERS_NOTIFICATION_SOUND),
+					tooltip = GetString(SCHOLAR_TIMERS_NOTIFICATION_SOUND_TIP),
+					choices = Scholar_Sounds:GetSoundChoices(parent),
+					default = "Smithing_Finish_Research",
+					getFunc = function() return parent.savedVariables.timers.notificationSound end,
+					setFunc = function(sound) parent.savedVariables.timers.notificationSound = sound end
+				},
+				{
 					type = "header",
 					name = GetString(SCHOLAR_TIMERS_LABEL_HEADER)
 				},
