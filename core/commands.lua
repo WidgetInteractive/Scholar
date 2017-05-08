@@ -28,6 +28,7 @@ function Scholar_Slash_Commands:Initialize(parent)
 			elseif command == "set" then
 				if option == "timersound" and argument then
 					parent.savedVariables.timers.notificationSound = argument
+					ReloadUI("ingame")
 				else
 					Scholar_Slash_Commands:DisplaySetHelp(parent)
 				end
