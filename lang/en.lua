@@ -22,6 +22,10 @@ SafeAddString(SCHOLAR_COMMANDS_VALID, "Valid Commands", 1),
 SafeAddString(SCHOLAR_COMMANDS_TIMERS, "Toggle display of timers", 1),
 SafeAddString(SCHOLAR_COMMANDS_SETTINGS, "Display settings panel", 1),
 SafeAddString(SCHOLAR_COMMANDS_NONE, "There are no valid slash commands for the current configuration.", 1),
+SafeAddString(SCHOLAR_COMMANDS_SET, "Set custom options for a certain available settings.", 1),
+
+-- Commands - set
+SafeAddString(SCHOLAR_COMMANDS_SET_TIMERSOUND, "Set a custom sound for notification timers (See http://wiki.esoui.com/Sounds).", 1),
 
 -- General settings
 SafeAddString(SCHOLAR_GENERAL_TITLE, "General Settings", 1),
@@ -80,6 +84,8 @@ SafeAddString(SCHOLAR_TIMERS_AUTOCLEAR, "Auto-Clear Timers", 1),
 SafeAddString(SCHOLAR_TIMERS_AUTOCLEAR_TIP, "Enable this setting to automatically clear research timers when they are completed.", 1),
 SafeAddString(SCHOLAR_TIMERS_NOTIFICATIONS, "Notification Type", 1),
 SafeAddString(SCHOLAR_TIMERS_NOTIFICATIONS_TIP, "Choose how notifications should be displayed when research completes.", 1),
+SafeAddString(SCHOLAR_TIMERS_NOTIFICATION_SOUND, "Notification Sound", 1),
+SafeAddString(SCHOLAR_TIMERS_NOTIFICATION_SOUND_TIP, "Choose the sound effect played when research completes.", 1),
 SafeAddString(SCHOLAR_STABLE_TIMER_TITLE, "Stable Timer Settings", 1),
 SafeAddString(SCHOLAR_STABLE_TIMER_DESCRIPTION, "The stable timer inherits its settings from the research timers, but the timer color can be independently configured for clarity.", 1),
 SafeAddString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR, "Background Color", 1),
