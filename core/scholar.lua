@@ -55,21 +55,25 @@ function Scholar:New()
 			timeSize              = 14,
 			labelColor            = self.FONT_COLOR_NORMAL_DEFAULT,
 			timeColor             = {1, 1, 1, 1},
-			backgroundColor       = {0.529, 1, 1, 1},
-			glossColor            = {1, 1, 1, 1},
+			clBackgroundColor     = {0.529, 1, 1, 1},
+			clGlossColor          = {1, 1, 1, 1},
+			smBackgroundColor     = {0.529, 1, 1, 1},
+			smGlossColor          = {1, 1, 1, 1},
+			wwBackgroundColor     = {0.529, 1, 1, 1},
+			wwGlossColor          = {1, 1, 1, 1},
 			labelAlignment        = GetString(SCHOLAR_OPTION_RIGHT),
 			timerAction           = GetString(SCHOLAR_OPTION_FILL),
 			sort                  = GetString(SCHOLAR_OPTION_DESCENDING),
 			scale                 = 0.7,
 			spacing               = 50,
-			stableBackgroundColor = {0.529, 1, 1, 1},
+			stableBackgroundColor = {0.533, 6, 1, 1},
 			stableGlossColor      = {1, 1, 1, 1}
 		}
 	}
 
 	self.savedVariables = {}
-	self.savedAccount   = ZO_SavedVars:NewAccountWide("Scholar_SavedVariables", 1.8, nil, defaults)
-	self.savedCharacter = ZO_SavedVars:New("Scholar_SavedVariables", 1.8, nil, defaults)
+	self.savedAccount   = ZO_SavedVars:NewAccountWide("Scholar_SavedVariables", 1.81, nil, defaults)
+	self.savedCharacter = ZO_SavedVars:New("Scholar_SavedVariables", 1.81, nil, defaults)
 	self:SwapSavedVars(self.savedAccount.accountWide)
 
 	self:Initialize()

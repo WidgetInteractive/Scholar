@@ -231,26 +231,6 @@ function Scholar_Settings:CreateMenu(parent)
 					end
 				},
 				{
-					type    = "colorpicker",
-					name    = GetString(SCHOLAR_TIMERS_BACKGROUND_COLOR),
-					tooltip = GetString(SCHOLAR_TIMERS_BACKGROUND_COLOR_TIP),
-					default = {r=0.529, g=1, b=1, a=1},
-					getFunc = function() return unpack(parent.savedVariables.timers.backgroundColor) end,
-					setFunc = function(r,g,b,a) parent.savedVariables.timers.backgroundColor = {r, g, b, a}
-						Scholar_Timers:ApplySettings()
-					end
-				},
-				{
-					type    = "colorpicker",
-					name    = GetString(SCHOLAR_TIMERS_GLOSS_COLOR),
-					tooltip = GetString(SCHOLAR_TIMERS_GLOSS_COLOR_TIP),
-					default = {r=1, g=1, b=1, a=1},
-					getFunc = function() return unpack(parent.savedVariables.timers.glossColor) end,
-					setFunc = function(r,g,b,a) parent.savedVariables.timers.glossColor = {r, g, b, a}
-						Scholar_Timers:ApplySettings()
-					end
-				},
-				{
 					type    = "dropdown",
 					name    = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT),
 					tooltip = GetString(SCHOLAR_TIMERS_LABEL_ALIGNMENT_TIP),
@@ -259,6 +239,70 @@ function Scholar_Settings:CreateMenu(parent)
 					getFunc = function() return parent.savedVariables.timers.labelAlignment end,
 					setFunc = function(labelAlignment) parent.savedVariables.timers.labelAlignment = labelAlignment
 						Scholar_Timers:RearrangeBars()
+					end
+				},
+				{
+					type = "header",
+					name = GetString(SCHOLAR_TIMERS_BAR_COLORS_HEADER)
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_TIMERS_CL_BACKGROUND_COLOR),
+					tooltip = GetString(SCHOLAR_TIMERS_CL_BACKGROUND_COLOR_TIP),
+					default = {r=0.529, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.clBackgroundColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.clBackgroundColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_TIMERS_CL_GLOSS_COLOR),
+					tooltip = GetString(SCHOLAR_TIMERS_CL_GLOSS_COLOR_TIP),
+					default = {r=1, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.clGlossColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.clGlossColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_TIMERS_SM_BACKGROUND_COLOR),
+					tooltip = GetString(SCHOLAR_TIMERS_SM_BACKGROUND_COLOR_TIP),
+					default = {r=0.529, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.smBackgroundColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.smBackgroundColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_TIMERS_SM_GLOSS_COLOR),
+					tooltip = GetString(SCHOLAR_TIMERS_SM_GLOSS_COLOR_TIP),
+					default = {r=1, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.smGlossColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.smGlossColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_TIMERS_WW_BACKGROUND_COLOR),
+					tooltip = GetString(SCHOLAR_TIMERS_WW_BACKGROUND_COLOR_TIP),
+					default = {r=0.529, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.wwBackgroundColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.wwBackgroundColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "colorpicker",
+					name    = GetString(SCHOLAR_TIMERS_WW_GLOSS_COLOR),
+					tooltip = GetString(SCHOLAR_TIMERS_WW_GLOSS_COLOR_TIP),
+					default = {r=1, g=1, b=1, a=1},
+					getFunc = function() return unpack(parent.savedVariables.timers.wwGlossColor) end,
+					setFunc = function(r,g,b,a) parent.savedVariables.timers.wwGlossColor = {r, g, b, a}
+						Scholar_Timers:ApplySettings()
 					end
 				},
 				{
@@ -330,7 +374,7 @@ function Scholar_Settings:CreateMenu(parent)
 					type    = "colorpicker",
 					name    = GetString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR),
 					tooltip = GetString(SCHOLAR_STABLE_TIMER_BACKGROUND_COLOR_TIP),
-					default = {r=0.529, g=1, b=1, a=1},
+					default = {r=0.533, g=6, b=1, a=1},
 					getFunc = function() return unpack(parent.savedVariables.timers.stableBackgroundColor) end,
 					setFunc = function(r,g,b,a) parent.savedVariables.timers.stableBackgroundColor = {r, g, b, a}
 						Scholar_Timers:ApplySettings()

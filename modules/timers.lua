@@ -104,15 +104,23 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 	self.timeLeftLabel:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.timeColor))
 
 	if researchLineIndex then
-		self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.glossColor))
-		self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.backgroundColor))
-
 		self.craftingSkillType = craftingSkillType
 		self.researchLineIndex = researchLineIndex
 		self.traitIndex        = traitIndex
 
 		local name                 = GetSmithingResearchLineInfo(craftingSkillType, researchLineIndex)
 		local skillName, traitName = Scholar_Helpers:GetSkill(craftingSkillType, researchLineIndex, traitIndex)
+
+		if skillName == GetString(SI_ITEMFILTERTYPE14) then
+			self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clGlossColor))
+			self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clBackgroundColor))
+		elseif skillName == GetString(SI_ITEMFILTERTYPE13) then
+			self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smGlossColor))
+			self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smBackgroundColor))
+		else
+			self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.wwGlossColor))
+			self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.wwBackgroundColor))
+		end
 
 		self.duration, self.remaining = GetSmithingResearchLineTraitTimes(craftingSkillType, researchLineIndex, traitIndex)
 		self.label:SetText(string.upper(zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)))
@@ -239,8 +247,16 @@ function Scholar_Timers:ApplySettings()
 
 			self.timers[self.timerKeys[i]].label:SetText(string.upper(zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)))
 
-			self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.glossColor))
-			self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.backgroundColor))
+			if skillName == GetString(SI_ITEMFILTERTYPE14) then
+				self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clGlossColor))
+				self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clBackgroundColor))
+			elseif skillName == GetString(SI_ITEMFILTERTYPE13) then
+				self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smGlossColor))
+				self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smBackgroundColor))
+			else
+				self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.wwGlossColor))
+				self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.wwBackgroundColor))
+			end
 		end
 	end
 end
