@@ -47,6 +47,7 @@ function Scholar:New()
 			notifications         = GetString(SCHOLAR_OPTION_NONE),
 			notificationSound     = "Smithing_Finish_Research",
 			useAbbr               = false,
+			type                  = GetString(SCHOLAR_TIMERS_TYPE_TIME),
 			labelFont             = GetString(SCHOLAR_OPTION_BOLD),
 			labelOutline          = GetString(SCHOLAR_OPTION_SOFT_THICK_SHADOW),
 			labelSize             = 16,

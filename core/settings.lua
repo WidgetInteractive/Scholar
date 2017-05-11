@@ -140,6 +140,17 @@ function Scholar_Settings:CreateMenu(parent)
 				},
 				{
 					type    = "dropdown",
+					name    = GetString(SCHOLAR_TIMERS_TYPE),
+					tooltip = GetString(SCHOLAR_TIMERS_TYPE_TIP),
+					choices = {GetString(SCHOLAR_TIMERS_TYPE_TIME), GetString(SCHOLAR_TIMERS_TYPE_PERCENT_REMAINING), GetString(SCHOLAR_TIMERS_TYPE_PERCENT_COMPLETE)},
+					default = GetString(SCHOLAR_TIMERS_TYPE_TIME),
+					getFunc = function() return parent.savedVariables.timers.type end,
+					setFunc = function(type) parent.savedVariables.timers.type = type
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
+					type    = "dropdown",
 					name    = GetString(SCHOLAR_TIMERS_LABEL_FONT),
 					tooltip = GetString(SCHOLAR_TIMERS_LABEL_FONT_TIP),
 					choices = Scholar_Fonts:GetFontChoices(),

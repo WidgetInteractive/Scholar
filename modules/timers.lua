@@ -70,7 +70,19 @@ function Scholar_Timer_Bar:Update(time)
 
 	if time > self.nextTimeUpdate then
 		self.remaining = self.timeout - time
-		self.timeLeftLabel:SetText(ZO_FormatTime(self.remaining, TIME_FORMAT_STYLE_COLONS, TIME_FORMAT_PRECISION_TWELVE_HOUR))
+
+		local timerPercent = math.floor(self.remaining/self.duration*100)
+		local timerLabel = ""
+
+		if Scholar_Timers.parent.savedVariables.timers.type == GetString(SCHOLAR_TIMERS_TYPE_PERCENT_COMPLETE) then
+			timerLabel = 100 - timerPercent .. " %"
+		elseif Scholar_Timers.parent.savedVariables.timers.type == GetString(SCHOLAR_TIMERS_TYPE_PERCENT_REMAINING) then
+			timerLabel = timerPercent .. " %"
+		else
+			timerLabel = ZO_FormatTime(self.remaining, TIME_FORMAT_STYLE_COLONS, TIME_FORMAT_PRECISION_TWELVE_HOUR)
+		end
+
+		self.timeLeftLabel:SetText(timerLabel)
 		self.nextTimeUpdate = time + 1
 	end
 end
