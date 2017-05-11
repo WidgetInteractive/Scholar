@@ -30,7 +30,6 @@ function Scholar:New()
 			stableTimer = false
 		},
 		timers = {
-			lockUI   = false,
 			position = {
 				point    = RIGHT,
 				relPoint = RIGHT,
@@ -65,6 +64,7 @@ function Scholar:New()
 			labelAlignment        = GetString(SCHOLAR_OPTION_RIGHT),
 			timerAction           = GetString(SCHOLAR_OPTION_FILL),
 			sort                  = GetString(SCHOLAR_OPTION_DESCENDING),
+			lockUI                = false,
 			scale                 = 0.7,
 			spacing               = 50,
 			stableBackgroundColor = {0.533, 6, 1, 1},
