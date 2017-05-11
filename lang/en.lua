@@ -31,6 +31,8 @@ SafeAddString(SCHOLAR_COMMANDS_SET_TIMERSOUND, "Set a custom sound for notificat
 SafeAddString(SCHOLAR_GENERAL_TITLE, "General Settings", 1),
 SafeAddString(SCHOLAR_ACCOUNT_WIDE, "Use Account Wide Settings", 1),
 SafeAddString(SCHOLAR_ACCOUNT_WIDE_TIP, "Enable this setting to allow use the same configuration for all of your characters.", 1),
+SafeAddString(SCHOLAR_TIMERS_LOCK_UI, "Lock UI", 1),
+SafeAddString(SCHOLAR_TIMERS_LOCK_UI_TIP, "Enable this setting to prevent the timers window from being moved.", 1),
 SafeAddString(SCHOLAR_MODULES_HEADER, "Modules, 1),
 SafeAddString(SCHOLAR_MODULES_DESCRIPTION, "Enabling or disabling modules requires reloading the UI for changes to take effect.", 1),
 SafeAddString(SCHOLAR_ENABLE_TIMERS, "Research Timers, 1),

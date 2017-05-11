@@ -45,6 +45,16 @@ function Scholar_Settings:CreateMenu(parent)
 					end
 				},
 				{
+					type    = "checkbox",
+					name    = GetString(SCHOLAR_TIMERS_LOCK_UI),
+					tooltip = GetString(SCHOLAR_TIMERS_LOCK_UI_TIP),
+					default = true,
+					getFunc = function() return parent.savedVariables.timers.lockUI end,
+					setFunc = function(lockUI) parent.savedVariables.timers.lockUI = lockUI
+						Scholar_Timers:ApplySettings()
+					end
+				},
+				{
 					type = "header",
 					name = GetString(SCHOLAR_MODULES_HEADER)
 				},

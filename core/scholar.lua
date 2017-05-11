@@ -30,6 +30,7 @@ function Scholar:New()
 			stableTimer = false
 		},
 		timers = {
+			lockUI   = false,
 			position = {
 				point    = RIGHT,
 				relPoint = RIGHT,

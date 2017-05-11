@@ -259,6 +259,13 @@ function Scholar_Timers:ApplySettings()
 			end
 		end
 	end
+
+	-- Lock the window if lock UI is enabled
+	if Scholar_Timers.parent.savedVariables.timers.lockUI then
+		Scholar_ResearchTimersContainer:SetMovable(false)
+	else
+		Scholar_ResearchTimersContainer:SetMovable(true)
+	end
 end
 
 -- Rearrange bars --------------------------------------------------------------
@@ -395,6 +402,12 @@ function Scholar_Timers:Initialize(parent)
 
 	Scholar_ResearchTimersContainer:SetAnchor(Scholar_Timers.parent.savedVariables.timers.position.point, GuiRoot, Scholar_Timers.parent.savedVariables.timers.position.relPoint, Scholar_Timers.parent.savedVariables.timers.position.x, Scholar_Timers.parent.savedVariables.timers.position.y)
 	Scholar_ResearchTimersContainer:SetScale(Scholar_Timers.parent.savedVariables.timers.scale)
+
+	-- Lock the window if lock UI is enabled
+	if Scholar_Timers.parent.savedVariables.timers.lockUI then
+		Scholar_ResearchTimersContainer:SetMovable(false)
+	end
+
 	Scholar_ResearchTimersContainer:SetHandler( "OnMoveStop", function()
 		local _, point, _, relPoint, x, y = Scholar_ResearchTimersContainer:GetAnchor(0)
 		Scholar_Timers.parent.savedVariables.timers.position = nil
