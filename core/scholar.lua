@@ -13,6 +13,10 @@ ZO_CreateStringId("SI_BINDING_NAME_SCHOLAR_TOGGLE_TIMERS", GetString(SCHOLAR_KEY
 -- Utilities -------------------------------------------------------------------
 function Scholar:SwapSavedVars(useAccountWide)
 	if useAccountWide then
+		if self.savedAccount == self.defaults then
+			self.savedAccount = self.savedCharacter
+		end
+
 		self.savedVariables = self.savedAccount
 	else
 		self.savedVariables = self.savedCharacter
@@ -24,7 +28,7 @@ function Scholar:New()
 	local norm                     = ZO_NORMAL_TEXT
 	self.FONT_COLOR_NORMAL_DEFAULT = {norm.r, norm.g, norm.b, norm.a}
 
-	local defaults = {
+	self.defaults = {
 		enable = {
 			timers      = true,
 			stableTimer = false
@@ -74,8 +78,8 @@ function Scholar:New()
 	}
 
 	self.savedVariables = {}
-	self.savedAccount   = ZO_SavedVars:NewAccountWide("Scholar_SavedVariables", 1.81, nil, defaults)
-	self.savedCharacter = ZO_SavedVars:New("Scholar_SavedVariables", 1.81, nil, defaults)
+	self.savedAccount   = ZO_SavedVars:NewAccountWide("Scholar_SavedVariables", 1.81, nil, self.defaults)
+	self.savedCharacter = ZO_SavedVars:New("Scholar_SavedVariables", 1.81, nil, self.defaults)
 	self:SwapSavedVars(self.savedAccount.accountWide)
 
 	self:Initialize()
