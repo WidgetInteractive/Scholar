@@ -78,8 +78,8 @@ function Scholar:New()
 	}
 
 	self.savedVariables = {}
-	self.savedAccount   = ZO_SavedVars:NewAccountWide("Scholar_SavedVariables", 1.81, nil, self.defaults)
-	self.savedCharacter = ZO_SavedVars:New("Scholar_SavedVariables", 1.81, nil, self.defaults)
+	self.savedAccount   = ZO_SavedVars:NewAccountWide("Scholar_SavedVariables", 1.9, nil, self.defaults)
+	self.savedCharacter = ZO_SavedVars:New("Scholar_SavedVariables", 1.9, nil, self.defaults)
 	self:SwapSavedVars(self.savedAccount.accountWide)
 
 	self:Initialize()
