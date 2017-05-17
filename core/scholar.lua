@@ -1,6 +1,6 @@
 -- Constants -------------------------------------------------------------------
 SCHOLAR_NAME    = "Scholar"
-SCHOLAR_VERSION = "1.2.3"
+SCHOLAR_VERSION = "1.3.0"
 SCHOLAR_WEBSITE = "http://www.esoui.com/downloads/info1670-Scholar.html"
 
 -- Local variables -------------------------------------------------------------
