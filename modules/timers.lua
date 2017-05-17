@@ -259,10 +259,10 @@ function Scholar_Timers:ApplySettings()
 
 			self.timers[self.timerKeys[i]].label:SetText(string.upper(zo_strformat("<<1>> - <<2>> - <<3>>", skillName, name, traitName)))
 
-			if skillName == GetString(SI_ITEMFILTERTYPE14) then
+			if skillName == GetString(SI_ITEMFILTERTYPE14) or skillName == GetString(SCHOLAR_ABBR_CLOTHING) then
 				self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clGlossColor))
 				self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clBackgroundColor))
-			elseif skillName == GetString(SI_ITEMFILTERTYPE13) then
+			elseif skillName == GetString(SI_ITEMFILTERTYPE13) or skillName == GetString(SCHOLAR_ABBR_BLACKSMITHING) then
 				self.timers[self.timerKeys[i]].progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smGlossColor))
 				self.timers[self.timerKeys[i]].progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smBackgroundColor))
 			else
