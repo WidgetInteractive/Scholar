@@ -123,10 +123,10 @@ function Scholar_Timer_Bar:CreateNewBar(craftingSkillType, researchLineIndex, tr
 		local name                 = GetSmithingResearchLineInfo(craftingSkillType, researchLineIndex)
 		local skillName, traitName = Scholar_Helpers:GetSkill(craftingSkillType, researchLineIndex, traitIndex)
 
-		if skillName == GetString(SI_ITEMFILTERTYPE14) then
+		if skillName == GetString(SI_ITEMFILTERTYPE14) or skillName == GetString(SCHOLAR_ABBR_CLOTHING) then
 			self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clGlossColor))
 			self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.clBackgroundColor))
-		elseif skillName == GetString(SI_ITEMFILTERTYPE13) then
+		elseif skillName == GetString(SI_ITEMFILTERTYPE13) or skillName == GetString(SCHOLAR_ABBR_BLACKSMITHING) then
 			self.progressBar:GetNamedChild("Gloss"):SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smGlossColor))
 			self.progressBar:SetColor(unpack(Scholar_Timers.parent.savedVariables.timers.smBackgroundColor))
 		else
