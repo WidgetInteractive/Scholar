@@ -69,6 +69,14 @@ function Scholar_Settings:CreateMenu(parent)
 					setFunc = function(enable) parent.savedVariables.enable.stableTimer = enable end
 				},
 				{
+					type    = "checkbox",
+					name    = GetString(SCHOLAR_ENABLE_SPINNER),
+					tooltip = GetString(SCHOLAR_ENABLE_SPINNER_TIP),
+					default = false,
+					getFunc = function() return parent.savedVariables.enable.spinner end,
+					setFunc = function(enable) parent.savedVariables.enable.spinner = enable end
+				},
+				{
 					type    = "button",
 					name    = GetString(SCHOLAR_RELOAD_UI),
 					tooltip = GetString(SCHOLAR_RELOAD_UI_TIP),

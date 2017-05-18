@@ -31,7 +31,8 @@ function Scholar:New()
 	self.defaults = {
 		enable = {
 			timers      = true,
-			stableTimer = false
+			stableTimer = false,
+			spinner     = false
 		},
 		timers = {
 			position = {
@@ -94,6 +95,10 @@ function Scholar:Initialize()
 	-- Load modules
 	if self.savedVariables.enable.timers or self.savedVariables.enable.stableTimer then
 		Scholar_Timers:Initialize(self)
+	end
+
+	if self.savedVariables.enable.spinner then
+		Scholar_Spinner:Initialize(self)
 	end
 end
 

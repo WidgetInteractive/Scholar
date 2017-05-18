@@ -28,6 +28,8 @@ local strings = {
 	SCHOLAR_ENABLE_TIMERS_TIP       = "Enable this setting to display research timers.",
 	SCHOLAR_ENABLE_STABLE_TIMER     = "Stable Timer",
 	SCHOLAR_ENABLE_STABLE_TIMER_TIP = "Enable this setting to display the stable timer.",
+	SCHOLAR_ENABLE_SPINNER          = "Crafting Spinner",
+	SCHOLAR_ENABLE_SPINNER_TIP      = "Enable this setting to add a spinner to crafting stations, allowing you to craft an item multiple times.",
 	SCHOLAR_RELOAD_UI               = "Reload UI",
 	SCHOLAR_RELOAD_UI_TIP           = "Click this button to reload the UI if you enable or disable modules.",
 

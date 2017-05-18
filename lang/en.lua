@@ -37,6 +37,8 @@ SafeAddString(SCHOLAR_ENABLE_TIMERS, "Research Timers, 1),
 SafeAddString(SCHOLAR_ENABLE_TIMERS_TIP, "Enable this setting to display research timers.", 1),
 SafeAddString(SCHOLAR_ENABLE_STABLE_TIMER, "Stable Timer", 1),
 SafeAddString(SCHOLAR_ENABLE_STABLE_TIMER_TIP, "Enable this setting to display the stable timer.", 1),
+SafeAddString(SCHOLAR_ENABLE_SPINNER, "Crafting Spinner", 1),
+SafeAddString(SCHOLAR_ENABLE_SPINNER_TIP, "Enable this setting to add a spinner to crafting stations, allowing you to craft an item multiple times.", 1),
 SafeAddString(SCHOLAR_RELOAD_UI, "Reload UI, 1),
 SafeAddString(SCHOLAR_RELOAD_UI_TIP, "Click this button to reload the UI if you enable or disable modules.", 1),
 

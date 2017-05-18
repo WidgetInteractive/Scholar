@@ -45,3 +45,5 @@ core/bindings.xml
 ; Modules
 modules/timers.lua
 modules/timers.xml
+modules/spinner.lua
+modules/spinner.xml
