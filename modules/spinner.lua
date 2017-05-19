@@ -66,7 +66,7 @@ function Scholar_Spinner:OverrideEnchanting()
 		original(...)
 
 		Scholar_Spinner:SetMode()
-		Scholar_Spinner_Tables:Reset()
+		Scholar_Spinner:Reset()
 	end
 
 	-- Create and extract
@@ -244,7 +244,7 @@ function Scholar_Spinner:Reset()
 				for k, data in pairs(ALCHEMY.reagentSlots) do
 					if data:MeetsUsabilityRequirement() then
 						if data.craftingInventory.itemCounts[data.itemInstanceId] then
-							craftable = zo_min(numCraftable, data.craftingInventory.itemCounts[data.itemInstanceId])
+							craftable = zo_min(craftable, data.craftingInventory.itemCounts[data.itemInstanceId])
 						end
 					end
 				end
