@@ -425,13 +425,23 @@ function Scholar_Spinner_Qty(delta, ctrl, alt, shift)
 
 		value = value + delta
 
-		-- Rollover on min/max
-		if value < 1 then
-			value = Scholar_Spinner_Tables.max
-		end
+		if ctrl or alt or shift or command or IsShiftKeyDown() or IsControlKeyDown() or IsAltKeyDown() or IsCommandKeyDown() then
+			if value < 1 then
+				value = 1
+			end
 
-		if value > Scholar_Spinner_Tables.max then
-			value = 1
+			if value > Scholar_Spinner_Tables.max then
+				value = Scholar_Spinner_Tables.max
+			end
+		else
+			-- Rollover on min/max
+			if value < 1 then
+				value = Scholar_Spinner_Tables.max
+			end
+
+			if value > Scholar_Spinner_Tables.max then
+				value = 1
+			end
 		end
 
 		Scholar_SpinnerContainer:GetNamedChild("Display"):SetText(value)
