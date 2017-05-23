@@ -13,14 +13,14 @@ function Scholar_Spinner:OverrideProvisioning()
 	PROVISIONER.RefreshRecipeList = function(...)
 		Scholar_Spinner_Tables.provisioning.RefreshRecipeList(...)
 
-		Scholar_Spinner:SetMode()
-		Scholar_Spinner:Reset()
+		self:SetMode()
+		self:Reset()
 	end
 
 	Scholar_Spinner_Tables.provisioning.SelectNode = PROVISIONER.recipeTree.SelectNode
 	PROVISIONER.recipeTree.SelectNode = function(...)
 		Scholar_Spinner_Tables.provisioning.SelectNode(...)
-		Scholar_Spinner:Reset()
+		self:Reset()
 	end
 
 	-- Create all the things!
@@ -44,8 +44,8 @@ function Scholar_Spinner:OverrideEnchanting()
 	ENCHANTING.SetEnchantingMode = function(...)
 		original(...)
 
-		Scholar_Spinner:SetMode()
-		Scholar_Spinner:Reset()
+		self:SetMode()
+		self:Reset()
 	end
 
 	-- Polymorphism
@@ -57,7 +57,7 @@ function Scholar_Spinner:OverrideEnchanting()
 	Scholar_Spinner_Tables.enchanting.SetRuneSlotItem = ENCHANTING.SetRuneSlotItem
 	ENCHANTING.SetRuneSlotItem = function(...)
 		Scholar_Spinner_Tables.enchanting.SetRuneSlotItem(...)
-		Scholar_Spinner:Reset()
+		self:Reset()
 	end
 
 	-- Extraction
@@ -65,8 +65,8 @@ function Scholar_Spinner:OverrideEnchanting()
 	ENCHANTING.OnSlotChanged = function(...)
 		original(...)
 
-		Scholar_Spinner:SetMode()
-		Scholar_Spinner:Reset()
+		self:SetMode()
+		self:Reset()
 	end
 
 	-- Create and extract
@@ -87,7 +87,7 @@ function Scholar_Spinner:OverrideAlchemy()
 	Scholar_Spinner_Tables.alchemy.OnSlotChanged = ALCHEMY.OnSlotChanged
 	ALCHEMY.OnSlotChanged = function(...)
 		Scholar_Spinner_Tables.alchemy.OnSlotChanged(...)
-		Scholar_Spinner:Reset()
+		self:Reset()
 	end
 
 	-- Create all the things!
@@ -108,8 +108,8 @@ function Scholar_Spinner:OverrideAlchemy()
 	local original = ALCHEMY.SetMode
 	ALCHEMY.SetMode = function(...)
 		original(...)
-		Scholar_Spinner:SetMode()
-		Scholar_Spinner:Reset()
+		self:SetMode()
+		self:Reset()
 	end
 end
 
@@ -119,8 +119,8 @@ function Scholar_Spinner:OverrideSmithing()
 	SMITHING.SetMode = function(...)
 		original(...)
 
-		Scholar_Spinner:SetMode()
-		Scholar_Spinner:Reset()
+		self:SetMode()
+		self:Reset()
 	end
 
 	Scholar_Spinner_Tables.smithing.GetMode = function()
@@ -130,14 +130,14 @@ function Scholar_Spinner:OverrideSmithing()
 	Scholar_Spinner_Tables.smithing.OnSelectedPatternChanged = SMITHING.OnSelectedPatternChanged
 	SMITHING.OnSelectedPatternChanged = function(...)
 		Scholar_Spinner_Tables.smithing.OnSelectedPatternChanged(...)
-		Scholar_Spinner:Reset()
+		self:Reset()
 	end
 
 	-- Deconstruction
 	Scholar_Spinner_Tables.smithing.OnExtractionSlotChanged = SMITHING.OnExtractionSlotChanged
 	SMITHING.OnExtractionSlotChanged = function(...)
 		Scholar_Spinner_Tables.smithing.OnExtractionSlotChanged(...)
-		Scholar_Spinner:Reset()
+		self:Reset()
 	end
 
 	-- Create all the things!
@@ -204,7 +204,7 @@ end
 
 -- Reset the spinner -----------------------------------------------------------
 function Scholar_Spinner:Reset()
-	Scholar_Spinner:Toggle()
+	self:Toggle()
 
 	local craftable = 1
 
@@ -290,7 +290,7 @@ function Scholar_Spinner:Reset()
 	craftable = zo_floor(craftable)
 
 	if craftable > 0 then
-		Scholar_Spinner:Toggle()
+		self:Toggle()
 	end
 
 	if craftable <= 1 then
@@ -341,14 +341,14 @@ function Scholar_Spinner:Process(func)
 		if Scholar_SpinnerContainer:IsHidden() == false then
 			Scholar_Spinner_Qty(0)
 
-			if Scholar_Spinner_Tables.sliderValue > 1 and Scholar_Spinner:Craftable() then
+			if Scholar_Spinner_Tables.sliderValue > 1 and self:Craftable() then
 				Scholar_Spinner_Tables.isCrafting = true
 
-				EVENT_MANAGER:RegisterForEvent(SCHOLAR_NAME, EVENT_CRAFT_COMPLETED, function() Scholar_Spinner:ContinueProcess(func) end)
+				EVENT_MANAGER:RegisterForEvent(SCHOLAR_NAME, EVENT_CRAFT_COMPLETED, function() self:ContinueProcess(func) end)
 			else
-				Scholar_Spinner:Reset()
+				self:Reset()
 
-				EVENT_MANAGER:RegisterForEvent(SCHOLAR_NAME, EVENT_CRAFT_COMPLETED, function() Scholar_Spinner:ContinueProcess(func) end)
+				EVENT_MANAGER:RegisterForEvent(SCHOLAR_NAME, EVENT_CRAFT_COMPLETED, function() self:ContinueProcess(func) end)
 			end
 		end
 	end
@@ -362,7 +362,7 @@ function Scholar_Spinner:ContinueProcess(func)
 		EVENT_MANAGER:UnregisterForEvent(SCHOLAR_NAME, EVENT_CRAFT_COMPLETED)
 
 		Scholar_Spinner_Tables.isCrafting = false
-		Scholar_Spinner:Reset()
+		self:Reset()
 	end
 end
 
@@ -455,18 +455,18 @@ end
 -- Initialize timers -----------------------------------------------------------
 function Scholar_Spinner:Initialize(parent)
 	-- Set up function overrides
-	Scholar_Spinner:OverrideProvisioning()
-	Scholar_Spinner:OverrideEnchanting()
-	Scholar_Spinner:OverrideAlchemy()
-	Scholar_Spinner:OverrideSmithing()
+	self:OverrideProvisioning()
+	self:OverrideEnchanting()
+	self:OverrideAlchemy()
+	self:OverrideSmithing()
 
 	-- Execute Scholar functions before ESO internal ones
-	ZO_PreHook(PROVISIONER, 'Create', function() Scholar_Spinner:Process(Scholar_Spinner_Tables.provisioning.Create) end)
-	ZO_PreHook(ENCHANTING, 'Create', function() Scholar_Spinner:Process(Scholar_Spinner_Tables.enchanting.Create) end)
-	ZO_PreHook(ALCHEMY, 'Create', function() Scholar_Spinner:Process(Scholar_Spinner_Tables.alchemy.Create) end)
-	ZO_PreHook(SMITHING.creationPanel, 'Create', function() Scholar_Spinner:Process(Scholar_Spinner_Tables.smithing.Create) end)
-	ZO_PreHook(SMITHING.deconstructionPanel, 'Extract', function() Scholar_Spinner:Process(Scholar_Spinner_Tables.smithing.Deconstruct) end)
-	ZO_PreHook(SMITHING.refinementPanel, 'Extract', function() Scholar_Spinner:Process(Scholar_Spinner_Tables.smithing.Extract) end)
+	ZO_PreHook(PROVISIONER, 'Create', function() self:Process(Scholar_Spinner_Tables.provisioning.Create) end)
+	ZO_PreHook(ENCHANTING, 'Create', function() self:Process(Scholar_Spinner_Tables.enchanting.Create) end)
+	ZO_PreHook(ALCHEMY, 'Create', function() self:Process(Scholar_Spinner_Tables.alchemy.Create) end)
+	ZO_PreHook(SMITHING.creationPanel, 'Create', function() self:Process(Scholar_Spinner_Tables.smithing.Create) end)
+	ZO_PreHook(SMITHING.deconstructionPanel, 'Extract', function() self:Process(Scholar_Spinner_Tables.smithing.Deconstruct) end)
+	ZO_PreHook(SMITHING.refinementPanel, 'Extract', function() self:Process(Scholar_Spinner_Tables.smithing.Extract) end)
 
 	EVENT_MANAGER:RegisterForEvent(SCHOLAR_NAME, EVENT_CRAFTING_STATION_INTERACT, Scholar_Spinner_SetCraftingSkill)
 	EVENT_MANAGER:RegisterForEvent(SCHOLAR_NAME, EVENT_CRAFT_STARTED, Scholar_Spinner_HideWhileCrafting)
