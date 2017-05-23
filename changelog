@@ -1,3 +1,7 @@
+= 1.4.0 (May 23, 2017) =
+* Added: Spinner module
+* Updated: API version for Morrowind
+
 = 1.3.0 (May 16, 2017) =
 * Added: Support for custom timer notification sounds
 * Added: Slash command to set custom unofficial notification sounds
